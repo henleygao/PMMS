@@ -201,6 +201,26 @@ namespace PMMS.Test
                         Status = UserStatus.Enable
                     };
                     _session.Save(ls);
+
+                    for (int i = 0; i < 100; i++)
+                    {
+                        var pm = new PlusMaterial()
+                        {
+                            No = "P00" + i,
+                            Price = 10 + i,
+                            Remark = "Remark" + i,
+                            StockCount = i + 1,
+                            Supplier = "supplier" + i,
+                            FabricWidth = (i + 1) / 10,
+                            CreateDate = DateTime.Now,
+                            Color = "红色" + i,
+                            Name = "上衣" + i
+                        };
+                        _session.Save(pm);
+                    }
+
+
+
                 }
                 catch (Exception ex)
                 {

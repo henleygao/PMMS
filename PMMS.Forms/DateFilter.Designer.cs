@@ -28,83 +28,236 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.panelDtp = new System.Windows.Forms.Panel();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.panel1.SuspendLayout();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.cbDateFilterType = new System.Windows.Forms.ComboBox();
+            this.panelMonth = new System.Windows.Forms.Panel();
+            this.cbFromYear = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbFromMonth = new System.Windows.Forms.ComboBox();
+            this.cbToYear = new System.Windows.Forms.ComboBox();
+            this.cbToMonth = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panelDtp.SuspendLayout();
+            this.panelMonth.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelDtp
             // 
-            this.panel1.Controls.Add(this.dateTimePicker4);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.dateTimePicker3);
-            this.panel1.Location = new System.Drawing.Point(89, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(245, 29);
-            this.panel1.TabIndex = 10;
+            this.panelDtp.Controls.Add(this.dtpFrom);
+            this.panelDtp.Controls.Add(this.label21);
+            this.panelDtp.Controls.Add(this.dtpTo);
+            this.panelDtp.Location = new System.Drawing.Point(89, 1);
+            this.panelDtp.Name = "panelDtp";
+            this.panelDtp.Size = new System.Drawing.Size(245, 29);
+            this.panelDtp.TabIndex = 10;
             // 
-            // dateTimePicker4
+            // dtpFrom
             // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(5, 3);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(102, 21);
-            this.dateTimePicker4.TabIndex = 6;
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(5, 3);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(102, 21);
+            this.dtpFrom.TabIndex = 6;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label21.Location = new System.Drawing.Point(113, 7);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(17, 12);
+            this.label21.Size = new System.Drawing.Size(18, 12);
             this.label21.TabIndex = 4;
             this.label21.Text = "至";
             // 
-            // dateTimePicker3
+            // dtpTo
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(136, 3);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(102, 21);
-            this.dateTimePicker3.TabIndex = 5;
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(136, 3);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(102, 21);
+            this.dtpTo.TabIndex = 5;
             // 
-            // comboBox4
+            // cbDateFilterType
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.cbDateFilterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDateFilterType.FormattingEnabled = true;
+            this.cbDateFilterType.Items.AddRange(new object[] {
             "所有",
-            "草稿",
-            "已检货"});
-            this.comboBox4.Location = new System.Drawing.Point(3, 5);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(77, 20);
-            this.comboBox4.TabIndex = 9;
+            "今天",
+            "昨天",
+            "本周",
+            "上周",
+            "本月",
+            "上月",
+            "今年",
+            "日期段",
+            "月份范围"});
+            this.cbDateFilterType.Location = new System.Drawing.Point(3, 5);
+            this.cbDateFilterType.Name = "cbDateFilterType";
+            this.cbDateFilterType.Size = new System.Drawing.Size(71, 20);
+            this.cbDateFilterType.TabIndex = 9;
+            this.cbDateFilterType.SelectedIndexChanged += new System.EventHandler(this.cbDateFilterType_SelectedIndexChanged);
+            // 
+            // panelMonth
+            // 
+            this.panelMonth.Controls.Add(this.label2);
+            this.panelMonth.Controls.Add(this.label5);
+            this.panelMonth.Controls.Add(this.label4);
+            this.panelMonth.Controls.Add(this.label3);
+            this.panelMonth.Controls.Add(this.label1);
+            this.panelMonth.Controls.Add(this.cbToMonth);
+            this.panelMonth.Controls.Add(this.cbFromMonth);
+            this.panelMonth.Controls.Add(this.cbToYear);
+            this.panelMonth.Controls.Add(this.cbFromYear);
+            this.panelMonth.Location = new System.Drawing.Point(79, 2);
+            this.panelMonth.Name = "panelMonth";
+            this.panelMonth.Size = new System.Drawing.Size(309, 27);
+            this.panelMonth.TabIndex = 11;
+            // 
+            // cbFromYear
+            // 
+            this.cbFromYear.FormattingEnabled = true;
+            this.cbFromYear.Location = new System.Drawing.Point(3, 4);
+            this.cbFromYear.Name = "cbFromYear";
+            this.cbFromYear.Size = new System.Drawing.Size(55, 20);
+            this.cbFromYear.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(64, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "年";
+            // 
+            // cbFromMonth
+            // 
+            this.cbFromMonth.FormattingEnabled = true;
+            this.cbFromMonth.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cbFromMonth.Location = new System.Drawing.Point(87, 3);
+            this.cbFromMonth.Name = "cbFromMonth";
+            this.cbFromMonth.Size = new System.Drawing.Size(40, 20);
+            this.cbFromMonth.TabIndex = 0;
+            // 
+            // cbToYear
+            // 
+            this.cbToYear.FormattingEnabled = true;
+            this.cbToYear.Location = new System.Drawing.Point(166, 4);
+            this.cbToYear.Name = "cbToYear";
+            this.cbToYear.Size = new System.Drawing.Size(59, 20);
+            this.cbToYear.TabIndex = 0;
+            // 
+            // cbToMonth
+            // 
+            this.cbToMonth.FormattingEnabled = true;
+            this.cbToMonth.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cbToMonth.Location = new System.Drawing.Point(244, 3);
+            this.cbToMonth.Name = "cbToMonth";
+            this.cbToMonth.Size = new System.Drawing.Size(40, 20);
+            this.cbToMonth.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(228, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "年";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(146, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 12);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "至";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(133, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(17, 12);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "月";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(288, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(17, 12);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "月";
             // 
             // DateFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.panelMonth);
+            this.Controls.Add(this.panelDtp);
+            this.Controls.Add(this.cbDateFilterType);
             this.Name = "DateFilter";
-            this.Size = new System.Drawing.Size(341, 34);
+            this.Size = new System.Drawing.Size(391, 31);
             this.Load += new System.EventHandler(this.DateFilter_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelDtp.ResumeLayout(false);
+            this.panelDtp.PerformLayout();
+            this.panelMonth.ResumeLayout(false);
+            this.panelMonth.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.Panel panelDtp;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.ComboBox cbDateFilterType;
+        private System.Windows.Forms.Panel panelMonth;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbFromYear;
+        private System.Windows.Forms.ComboBox cbFromMonth;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbToMonth;
+        private System.Windows.Forms.ComboBox cbToYear;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

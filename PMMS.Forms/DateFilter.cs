@@ -22,7 +22,27 @@ namespace PMMS.Forms
 
         private void DateFilter_Load(object sender, EventArgs e)
         {
+            panelDtp.Visible = false;
+            panelMonth.Visible = false;
+        }
 
+        private void cbDateFilterType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbDateFilterType.Text == "日期段")
+            {
+                panelDtp.Visible = true;
+                panelMonth.Visible = false;
+            }
+            else if (cbDateFilterType.Text == "月份范围")
+            {
+                panelDtp.Visible = false;
+                panelMonth.Visible = true;
+            }
+            else
+            {
+                panelDtp.Visible = false;
+                panelMonth.Visible = false;
+            }
         }
     }
 }
