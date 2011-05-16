@@ -1,0 +1,93 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.Forms", "PMMS.Forms\PMMS.Forms.csproj", "{264313E5-52B6-453D-B61B-A18894BC0A94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS", "PMMS\PMMS.csproj", "{D8D22D00-4D2C-48CA-8A9E-FDCFCDB909B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.Entities", "PMMS.Entities\PMMS.Entities.csproj", "{CE9FCD39-F25E-4764-8D75-2C6089D4D6B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.Entities.Mapping", "PMMS.Entities.Mapping\PMMS.Entities.Mapping.csproj", "{A2F51DDB-2E59-42BB-B662-FF3CA99743C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.Test", "PMMS.Test\PMMS.Test.csproj", "{6150A881-CA84-46AA-AD9B-47139A63C964}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{96EC7090-3332-4C15-818F-5374E2C05077}"
+	ProjectSection(SolutionItems) = preProject
+		lib\Antlr3.Runtime.dll = lib\Antlr3.Runtime.dll
+		lib\AutoMapper.dll = lib\AutoMapper.dll
+		lib\Castle.Core.dll = lib\Castle.Core.dll
+		lib\Castle.DynamicProxy2.dll = lib\Castle.DynamicProxy2.dll
+		lib\Common.Logging.dll = lib\Common.Logging.dll
+		lib\ConfOrm.dll = lib\ConfOrm.dll
+		lib\ConfOrm.Shop.dll = lib\ConfOrm.Shop.dll
+		lib\ConfOrm.Shop.snk = lib\ConfOrm.Shop.snk
+		lib\ConfOrm.snk = lib\ConfOrm.snk
+		lib\HibernatingRhinos.NHibernate.Profiler.Appender.dll = lib\HibernatingRhinos.NHibernate.Profiler.Appender.dll
+		lib\Iesi.Collections.dll = lib\Iesi.Collections.dll
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		lib\log4net.dll = lib\log4net.dll
+		lib\Microsoft.Practices.ServiceLocation.dll = lib\Microsoft.Practices.ServiceLocation.dll
+		lib\Microsoft.Practices.Unity.Configuration.dll = lib\Microsoft.Practices.Unity.Configuration.dll
+		..\..\..\Projects\ECARD\lib\Microsoft.Practices.Unity.dll = ..\..\..\Projects\ECARD\lib\Microsoft.Practices.Unity.dll
+		lib\Moq.dll = lib\Moq.dll
+		lib\Moq.xml = lib\Moq.xml
+		lib\MvcExtensions.dll = lib\MvcExtensions.dll
+		lib\MvcExtensions.Unity.dll = lib\MvcExtensions.Unity.dll
+		lib\MySql.Data.dll = lib\MySql.Data.dll
+		lib\NHibernate.ByteCode.Castle.dll = lib\NHibernate.ByteCode.Castle.dll
+		lib\NHibernate.dll = lib\NHibernate.dll
+		PMMS.vsmdi = PMMS.vsmdi
+		lib\Quartz.dll = lib\Quartz.dll
+		lib\Quartz.xml = lib\Quartz.xml
+		lib\Remotion.Data.Linq.dll = lib\Remotion.Data.Linq.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.Services", "PMMS.Services\PMMS.Services.csproj", "{4F01FB35-58CA-4666-B209-98CE33C7FAB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.Services.Impl", "PMMS.Services.Impl\PMMS.Services.Impl.csproj", "{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = PMMS.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{264313E5-52B6-453D-B61B-A18894BC0A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{264313E5-52B6-453D-B61B-A18894BC0A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{264313E5-52B6-453D-B61B-A18894BC0A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{264313E5-52B6-453D-B61B-A18894BC0A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8D22D00-4D2C-48CA-8A9E-FDCFCDB909B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D22D00-4D2C-48CA-8A9E-FDCFCDB909B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D22D00-4D2C-48CA-8A9E-FDCFCDB909B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D22D00-4D2C-48CA-8A9E-FDCFCDB909B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE9FCD39-F25E-4764-8D75-2C6089D4D6B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9FCD39-F25E-4764-8D75-2C6089D4D6B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9FCD39-F25E-4764-8D75-2C6089D4D6B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9FCD39-F25E-4764-8D75-2C6089D4D6B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2F51DDB-2E59-42BB-B662-FF3CA99743C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F51DDB-2E59-42BB-B662-FF3CA99743C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F51DDB-2E59-42BB-B662-FF3CA99743C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F51DDB-2E59-42BB-B662-FF3CA99743C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6150A881-CA84-46AA-AD9B-47139A63C964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6150A881-CA84-46AA-AD9B-47139A63C964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6150A881-CA84-46AA-AD9B-47139A63C964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6150A881-CA84-46AA-AD9B-47139A63C964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F01FB35-58CA-4666-B209-98CE33C7FAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F01FB35-58CA-4666-B209-98CE33C7FAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F01FB35-58CA-4666-B209-98CE33C7FAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F01FB35-58CA-4666-B209-98CE33C7FAB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

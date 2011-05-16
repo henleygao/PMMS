@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+  <configSections>
+    <section name="unity"
+              type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection,
+                 Microsoft.Practices.Unity.Configuration, Version=1.2.0.0,
+                 Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+  </configSections>
+
+  <unity>
+
+    <typeAliases>
+      <typeAlias alias="singleton"
+                 type="Microsoft.Practices.Unity.ContainerControlledLifetimeManager, Microsoft.Practices.Unity" />
+      <typeAlias alias="transparentProxy"
+                 type="Microsoft.Practices.Unity.InterceptionExtension.TransparentProxyInterceptor, Microsoft.Practices.Unity.Interception" />
+      <typeAlias alias="typeMatchingRule"
+                 type="Microsoft.Practices.Unity.InterceptionExtension.TypeMatchingRule, Microsoft.Practices.Unity.Interception"/>
+      <typeAlias alias="interception"
+                 type="Microsoft.Practices.Unity.InterceptionExtension.Interception, Microsoft.Practices.Unity.Interception"/>
+      <typeAlias alias="IOutput" type="ConsoleApplication1.IOutput, ConsoleApplication1" />
+      <typeAlias alias="MyHandler" type="ConsoleApplication1.MyHandler, ConsoleApplication1" />
+      <typeAlias alias="OutputImplement2" type="ConsoleApplication1.OutputImplement2, ConsoleApplication1" />
+      
+    </typeAliases>
+    <containers>
+      <container name="DefContainer">
+        <types>
+          <type type="IOutput" mapTo="OutputImplement2" name="">
+            <lifetime type="singleton" />
+          </type>
+        </types>
+      </container>
+    </containers>
+  </unity>
+</configuration>
