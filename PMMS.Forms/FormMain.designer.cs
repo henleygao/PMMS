@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUser = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPlusMaterial = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,8 +103,8 @@
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelStockInSearch = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbStockInStatus = new System.Windows.Forms.ComboBox();
+            this.cbStokcInType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnStockInSearch = new System.Windows.Forms.Button();
@@ -117,6 +117,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tsslUserInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRemark = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.cmsStouckOut.SuspendLayout();
             this.cmsPlusMaterial.SuspendLayout();
@@ -190,7 +192,7 @@
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(962, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1019, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -278,7 +280,7 @@
             this.tabPageStockOut.Location = new System.Drawing.Point(4, 21);
             this.tabPageStockOut.Name = "tabPageStockOut";
             this.tabPageStockOut.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOut.Size = new System.Drawing.Size(954, 570);
+            this.tabPageStockOut.Size = new System.Drawing.Size(1011, 570);
             this.tabPageStockOut.TabIndex = 2;
             this.tabPageStockOut.Text = "出库管理";
             this.tabPageStockOut.UseVisualStyleBackColor = true;
@@ -290,7 +292,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel11.Location = new System.Drawing.Point(3, 506);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(948, 61);
+            this.panel11.Size = new System.Drawing.Size(1005, 61);
             this.panel11.TabIndex = 0;
             // 
             // button5
@@ -318,19 +320,19 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 70);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(948, 497);
+            this.panel10.Size = new System.Drawing.Size(1005, 497);
             this.panel10.TabIndex = 0;
             // 
             // dgvStockOut
             // 
             this.dgvStockOut.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvStockOut.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvStockOut.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvStockOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStockOut.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StockOutId,
@@ -346,11 +348,11 @@
             this.dgvStockOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStockOut.Location = new System.Drawing.Point(0, 0);
             this.dgvStockOut.Name = "dgvStockOut";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            this.dgvStockOut.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Silver;
+            this.dgvStockOut.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvStockOut.RowTemplate.Height = 23;
             this.dgvStockOut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStockOut.Size = new System.Drawing.Size(948, 497);
+            this.dgvStockOut.Size = new System.Drawing.Size(1005, 497);
             this.dgvStockOut.TabIndex = 0;
             this.dgvStockOut.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStockOut_DataBindingComplete);
             // 
@@ -376,9 +378,9 @@
             // StocuOutCreateDatetime
             // 
             this.StocuOutCreateDatetime.DataPropertyName = "CreateDatetime";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.StocuOutCreateDatetime.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Format = "d";
+            dataGridViewCellStyle7.NullValue = null;
+            this.StocuOutCreateDatetime.DefaultCellStyle = dataGridViewCellStyle7;
             this.StocuOutCreateDatetime.HeaderText = "日期";
             this.StocuOutCreateDatetime.Name = "StocuOutCreateDatetime";
             this.StocuOutCreateDatetime.Width = 80;
@@ -440,7 +442,7 @@
             this.PanelStockOut.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelStockOut.Location = new System.Drawing.Point(3, 3);
             this.PanelStockOut.Name = "PanelStockOut";
-            this.PanelStockOut.Size = new System.Drawing.Size(948, 67);
+            this.PanelStockOut.Size = new System.Drawing.Size(1005, 67);
             this.PanelStockOut.TabIndex = 0;
             // 
             // comboBox2
@@ -485,7 +487,7 @@
             // 
             this.panel12.Controls.Add(this.btnStockOutSearch);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel12.Location = new System.Drawing.Point(748, 0);
+            this.panel12.Location = new System.Drawing.Point(805, 0);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(200, 67);
             this.panel12.TabIndex = 2;
@@ -606,7 +608,7 @@
             this.tabPageStockIn.Location = new System.Drawing.Point(4, 21);
             this.tabPageStockIn.Name = "tabPageStockIn";
             this.tabPageStockIn.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockIn.Size = new System.Drawing.Size(954, 570);
+            this.tabPageStockIn.Size = new System.Drawing.Size(1011, 570);
             this.tabPageStockIn.TabIndex = 1;
             this.tabPageStockIn.Text = "入库管理";
             this.tabPageStockIn.UseVisualStyleBackColor = true;
@@ -618,7 +620,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.Location = new System.Drawing.Point(3, 507);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(948, 60);
+            this.panel8.Size = new System.Drawing.Size(1005, 60);
             this.panel8.TabIndex = 0;
             // 
             // button3
@@ -646,20 +648,20 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 79);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(948, 488);
+            this.panel6.Size = new System.Drawing.Size(1005, 488);
             this.panel6.TabIndex = 0;
             // 
             // dgvStockIn
             // 
             this.dgvStockIn.BackgroundColor = System.Drawing.Color.White;
             this.dgvStockIn.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvStockIn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvStockIn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStockIn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStockIn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -676,13 +678,13 @@
             this.dgvStockIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStockIn.Location = new System.Drawing.Point(0, 0);
             this.dgvStockIn.Name = "dgvStockIn";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvStockIn.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvStockIn.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStockIn.RowTemplate.Height = 23;
             this.dgvStockIn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStockIn.Size = new System.Drawing.Size(948, 488);
+            this.dgvStockIn.Size = new System.Drawing.Size(1005, 488);
             this.dgvStockIn.TabIndex = 1;
             this.dgvStockIn.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStockIn_DataBindingComplete);
             // 
@@ -753,46 +755,48 @@
             // 
             // panelStockInSearch
             // 
-            this.panelStockInSearch.Controls.Add(this.comboBox3);
-            this.panelStockInSearch.Controls.Add(this.comboBox1);
+            this.panelStockInSearch.Controls.Add(this.cbStockInStatus);
+            this.panelStockInSearch.Controls.Add(this.cbStokcInType);
             this.panelStockInSearch.Controls.Add(this.label8);
             this.panelStockInSearch.Controls.Add(this.panel7);
             this.panelStockInSearch.Controls.Add(this.label2);
             this.panelStockInSearch.Controls.Add(this.label11);
             this.panelStockInSearch.Controls.Add(this.label1);
+            this.panelStockInSearch.Controls.Add(this.txtRemark);
+            this.panelStockInSearch.Controls.Add(this.label3);
             this.panelStockInSearch.Controls.Add(this.txtStockInNo);
             this.panelStockInSearch.Controls.Add(this.label6);
             this.panelStockInSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStockInSearch.Location = new System.Drawing.Point(3, 3);
             this.panelStockInSearch.Name = "panelStockInSearch";
-            this.panelStockInSearch.Size = new System.Drawing.Size(948, 76);
+            this.panelStockInSearch.Size = new System.Drawing.Size(1005, 76);
             this.panelStockInSearch.TabIndex = 0;
             // 
-            // comboBox3
+            // cbStockInStatus
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbStockInStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStockInStatus.FormattingEnabled = true;
+            this.cbStockInStatus.Items.AddRange(new object[] {
             "所有",
             "草稿",
             "已检货"});
-            this.comboBox3.Location = new System.Drawing.Point(78, 40);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 20);
-            this.comboBox3.TabIndex = 7;
+            this.cbStockInStatus.Location = new System.Drawing.Point(78, 40);
+            this.cbStockInStatus.Name = "cbStockInStatus";
+            this.cbStockInStatus.Size = new System.Drawing.Size(100, 20);
+            this.cbStockInStatus.TabIndex = 7;
             // 
-            // comboBox1
+            // cbStokcInType
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbStokcInType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStokcInType.FormattingEnabled = true;
+            this.cbStokcInType.Items.AddRange(new object[] {
             "所有",
             "采购入库",
             "退货入库"});
-            this.comboBox1.Location = new System.Drawing.Point(257, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(85, 20);
-            this.comboBox1.TabIndex = 7;
+            this.cbStokcInType.Location = new System.Drawing.Point(257, 14);
+            this.cbStokcInType.Name = "cbStokcInType";
+            this.cbStokcInType.Size = new System.Drawing.Size(100, 20);
+            this.cbStokcInType.TabIndex = 7;
             // 
             // label8
             // 
@@ -807,14 +811,14 @@
             // 
             this.panel7.Controls.Add(this.btnStockInSearch);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(788, 0);
+            this.panel7.Location = new System.Drawing.Point(845, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(160, 76);
             this.panel7.TabIndex = 3;
             // 
             // btnStockInSearch
             // 
-            this.btnStockInSearch.Location = new System.Drawing.Point(19, 10);
+            this.btnStockInSearch.Location = new System.Drawing.Point(22, 14);
             this.btnStockInSearch.Name = "btnStockInSearch";
             this.btnStockInSearch.Size = new System.Drawing.Size(75, 32);
             this.btnStockInSearch.TabIndex = 0;
@@ -873,7 +877,7 @@
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(962, 595);
+            this.tabControl.Size = new System.Drawing.Size(1019, 595);
             this.tabControl.TabIndex = 0;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
@@ -883,7 +887,7 @@
             this.tsslUserInfo});
             this.statusStrip.Location = new System.Drawing.Point(0, 619);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(962, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1019, 22);
             this.statusStrip.TabIndex = 3;
             // 
             // tsslUserInfo
@@ -897,14 +901,30 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 24);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(962, 595);
+            this.panelMain.Size = new System.Drawing.Size(1019, 595);
             this.panelMain.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(222, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "备注";
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.Location = new System.Drawing.Point(257, 39);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(100, 21);
+            this.txtRemark.TabIndex = 2;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 641);
+            this.ClientSize = new System.Drawing.Size(1019, 641);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
@@ -1022,10 +1042,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutApproveDatetime;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutRemark;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbStokcInType;
+        private System.Windows.Forms.ComboBox cbStockInStatus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtRemark;
+        private System.Windows.Forms.Label label3;
 
     }
 }

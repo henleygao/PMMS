@@ -21,6 +21,8 @@ namespace PMMS.Forms
         IStockInLogic stockInLogic;
         IStockOutLogic stockOutLogic;
 
+        private DateFilter dfStockIn = new DateFilter(new Point(438, 5));
+        private DateFilter dfApprove = new DateFilter(new Point(438, 33));
 
         public FormMain()
         {
@@ -39,9 +41,13 @@ namespace PMMS.Forms
             dgvStockOut.RowHeadersWidth = 50;
             dgvStockOut.TopLeftHeaderCell.Value = "序号";
             BindStockInTable();
-            DateFilter dt = new DateFilter();
-            dt.Location = new Point(438, 10);
-            panelStockInSearch.Controls.Add(dt);
+
+            panelStockInSearch.Controls.Add(dfStockIn);
+            panelStockInSearch.Controls.Add(dfApprove);
+
+            cbStockInStatus.SelectedIndex = 0;
+            cbStokcInType.SelectedIndex = 0;
+
         }
 
         //用户管理
