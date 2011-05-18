@@ -25,10 +25,11 @@ namespace PMMS.Services.Impl.StockManage
         {
             var stockOut = new StockOut()
             {
-                CreateDateTime = DateTime.Now,
+                StockOutDateTime = view.StockOutDateTime,
                 Creater = LogicUtils.NotNull(session.Get<User>(view.CreateUserId)),
                 No = view.No,
                 Remark = view.Remark,
+                CreateDateTime = DateTime.Now
             };
             session.Save(stockOut);
             foreach (var item in view.StockOutDetails)
@@ -74,7 +75,7 @@ namespace PMMS.Services.Impl.StockManage
                             Status = s.Status == StockOutStatus.Normal ? "草稿" : "已检货",
                             //  Amount = s.StockInDetails.Sum(item => item.Price * item.Count),
                             Approver = s.Approver == null ? "" : s.Approver.Name,
-                            CreateDateTime = s.CreateDateTime,
+                            StockOutDateTime = s.StockOutDateTime,
                             Creater = s.Creater.Name,
                             ApproveDateTime = s.ApprovalDateTime
                         };

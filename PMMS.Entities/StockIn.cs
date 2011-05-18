@@ -29,9 +29,9 @@ namespace PMMS.Entities
         public virtual StockInStatus Status { get; set; }
 
         /// <summary>
-        /// 创建时间
+        /// 入库日期
         /// </summary>
-        public virtual DateTime CreateDateTime { get; set; }
+        public virtual DateTime StockInDateTime { get; set; }
 
         /// <summary>
         /// 创建者
@@ -52,6 +52,12 @@ namespace PMMS.Entities
         /// 备注
         /// </summary>
         public virtual string Remark { get; set; }
+
+
+        /// <summary>
+        /// 创建日期
+        /// </summary>
+        public virtual DateTime CreateDateTime { get; set; }
 
         /// <summary>
         /// 入库单明细

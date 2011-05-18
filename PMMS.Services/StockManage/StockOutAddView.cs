@@ -23,6 +23,11 @@ namespace PMMS.Services.StockManage
         public string Remark { get; set; }
 
         /// <summary>
+        /// 出库日期
+        /// </summary>
+        public DateTime StockOutDateTime { get; set; }
+
+        /// <summary>
         /// 入库单明细
         /// </summary>
         public virtual IList<StockOutDetailAddView> StockOutDetails { get; set; }

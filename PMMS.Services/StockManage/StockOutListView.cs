@@ -27,7 +27,7 @@ namespace PMMS.Services.StockManage
         /// <summary>
         /// 入库日期
         /// </summary>
-        public DateTime CreateDateTime { get; set; }
+        public DateTime StockOutDateTime { get; set; }
 
         /// <summary>
         /// 审批者
@@ -48,5 +48,6 @@ namespace PMMS.Services.StockManage
         /// 备注
         /// </summary>
         public string Remark { get; set; }
+
     }
 }

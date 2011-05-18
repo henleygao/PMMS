@@ -34,12 +34,12 @@ namespace PMMS.Services.Impl.StockManage
 
             var stockIn = new StockIn()
             {
-                CreateDateTime = DateTime.Now,
+                StockInDateTime = view.StockInDateTime,
                 Creater = LogicUtils.NotNull(session.Get<User>(view.CreateUserId)),
                 No = view.No,
                 Remark = view.Remark,
                 Type = view.StockInType,
-
+                CreateDateTime = DateTime.Now
             };
             session.Save(stockIn);
             foreach (var item in view.StockInDetails)
@@ -58,20 +58,54 @@ namespace PMMS.Services.Impl.StockManage
         public IList<StockInListView> ListStockIn(ListStockInParmeters parmeters)
         {
             var query = from s in session.Query<StockIn>()
-                        select new StockInListView()
+                        select s;
+
+            if (!string.IsNullOrEmpty(parmeters.No))
+            {
+                query = query.Where(item => item.No.Contains(parmeters.No));
+            }
+            if (!string.IsNullOrEmpty(parmeters.Remark))
+            {
+                query = query.Where(item => item.Remark.Contains(parmeters.Remark));
+            }
+            if (parmeters.Status.HasValue)
+            {
+                query = query.Where(item => item.Status == parmeters.Status.Value);
+            }
+            if (parmeters.Type.HasValue)
+            {
+                query = query.Where(item => item.Type == parmeters.Type.Value);
+            }
+            if (parmeters.CreateDateRange.DateFrom.HasValue)
+            {
+                query = query.Where(item => item.StockInDateTime >= parmeters.CreateDateRange.DateFrom.Value);
+            }
+            if (parmeters.CreateDateRange.DateTo.HasValue)
+            {
+                query = query.Where(item => item.StockInDateTime < parmeters.CreateDateRange.DateTo.Value);
+            }
+            if (parmeters.ApproveDateRange.DateFrom.HasValue)
+            {
+                query = query.Where(item => item.ApprovalDateTime >= parmeters.ApproveDateRange.DateFrom.Value);
+
+            }
+            if (parmeters.ApproveDateRange.DateTo.HasValue)
+            {
+                query = query.Where(item => item.ApprovalDateTime < parmeters.ApproveDateRange.DateTo.Value);
+            }
+            return query.Select(s => new StockInListView()
                         {
                             Id = s.Id,
                             No = s.No,
                             Remark = s.Remark,
                             Type = s.Type == StockInType.Purchase ? "采购入库" : "退货入库",
                             Status = s.Status == StockInStatus.Normal ? "草稿" : "已检货",
-                            //  Amount = s.StockInDetails.Sum(item => item.Price * item.Count),
+                            // Amount = s.StockInDetails.Sum(item => item.Price * item.Count),
                             Approver = s.Approver == null ? "" : s.Approver.Name,
-                            CreateDateTime = s.CreateDateTime,
+                            StockInDateTime = s.StockInDateTime,
                             Creater = s.Creater.Name,
                             ApproveDateTime = s.ApprovalDateTime
-                        };
-            return query.ToList();
+                        }).ToArray();
         }
 
         public StockInDetailView GetStockInDetail(string plusNo)
@@ -108,6 +142,7 @@ namespace PMMS.Services.Impl.StockManage
                     stockIn.Status = StockInStatus.Approve;
                     var currentUser = session.Get<User>(currentId);
                     stockIn.Approver = currentUser;
+                    stockIn.ApprovalDateTime = DateTime.Now;
                     session.Update(stockIn);
                 }
             }

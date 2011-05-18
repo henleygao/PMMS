@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rbReturned = new System.Windows.Forms.RadioButton();
             this.rbPurchase = new System.Windows.Forms.RadioButton();
             this.dtpStockInDate = new System.Windows.Forms.DateTimePicker();
@@ -44,7 +45,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvPlus = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlusMaterialNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlusMaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +68,7 @@
             this.rbReturned.Name = "rbReturned";
             this.rbReturned.Size = new System.Drawing.Size(47, 16);
             this.rbReturned.TabIndex = 3;
-            this.rbReturned.Text = "退料";
+            this.rbReturned.Text = "退货";
             this.rbReturned.UseVisualStyleBackColor = true;
             // 
             // rbPurchase
@@ -79,7 +80,7 @@
             this.rbPurchase.Size = new System.Drawing.Size(47, 16);
             this.rbPurchase.TabIndex = 2;
             this.rbPurchase.TabStop = true;
-            this.rbPurchase.Text = "入库";
+            this.rbPurchase.Text = "采购";
             this.rbPurchase.UseVisualStyleBackColor = true;
             // 
             // dtpStockInDate
@@ -96,6 +97,7 @@
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(394, 55);
             this.txtRemark.TabIndex = 8;
+            this.txtRemark.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRemark_KeyPress);
             // 
             // label11
             // 
@@ -112,6 +114,7 @@
             this.txtNo.Name = "txtNo";
             this.txtNo.Size = new System.Drawing.Size(145, 21);
             this.txtNo.TabIndex = 1;
+            this.txtNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNo_KeyPress);
             // 
             // label12
             // 
@@ -125,11 +128,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(364, 39);
+            this.label10.Location = new System.Drawing.Point(340, 40);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 12);
+            this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 43;
-            this.label10.Text = "日期";
+            this.label10.Text = "入库日期";
             // 
             // label1
             // 
@@ -175,6 +178,7 @@
             this.txtPlusNo.Name = "txtPlusNo";
             this.txtPlusNo.Size = new System.Drawing.Size(69, 21);
             this.txtPlusNo.TabIndex = 4;
+            this.txtPlusNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlusNo_KeyPress);
             // 
             // btnSearch
             // 
@@ -197,22 +201,22 @@
             // 
             // dgvPlus
             // 
-            this.dgvPlus.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dgvPlus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPlus.BackgroundColor = System.Drawing.Color.White;
             this.dgvPlus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.PlusMaterialNo,
             this.PlusMaterialName,
             this.Count,
             this.Price,
             this.Amount,
             this.PlusMaterialRemark,
             this.PlusMaterialId});
-            this.dgvPlus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPlus.Location = new System.Drawing.Point(0, 0);
             this.dgvPlus.Name = "dgvPlus";
             this.dgvPlus.RowTemplate.Height = 23;
-            this.dgvPlus.Size = new System.Drawing.Size(694, 227);
+            this.dgvPlus.Size = new System.Drawing.Size(694, 221);
             this.dgvPlus.TabIndex = 8;
             this.dgvPlus.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlus_CellValueChanged);
             this.dgvPlus.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlus_CellEndEdit);
@@ -220,12 +224,12 @@
             this.dgvPlus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPlus_KeyDown);
             this.dgvPlus.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPlus_DataBindingComplete);
             // 
-            // Column1
+            // PlusMaterialNo
             // 
-            this.Column1.DataPropertyName = "PlusMaterialNo";
-            this.Column1.HeaderText = "面料编码";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.PlusMaterialNo.DataPropertyName = "PlusMaterialNo";
+            this.PlusMaterialNo.HeaderText = "面料编码";
+            this.PlusMaterialNo.Name = "PlusMaterialNo";
+            this.PlusMaterialNo.ReadOnly = true;
             // 
             // PlusMaterialName
             // 
@@ -249,9 +253,8 @@
             // Amount
             // 
             this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "入库金额";
+            this.Amount.HeaderText = "金额";
             this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
             // 
             // PlusMaterialRemark
             // 
@@ -344,16 +347,16 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvPlus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialId;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
 
 
 

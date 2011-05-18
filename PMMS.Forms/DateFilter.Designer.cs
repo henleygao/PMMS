@@ -1,4 +1,6 @@
-﻿namespace PMMS.Forms
+﻿using System;
+using System.Collections.Generic;
+namespace PMMS.Forms
 {
     partial class DateFilter
     {
@@ -189,7 +191,7 @@
             this.cbToMonth.Name = "cbToMonth";
             this.cbToMonth.Size = new System.Drawing.Size(40, 20);
             this.cbToMonth.TabIndex = 0;
-            this.cbToMonth.SelectedIndexChanged += new System.EventHandler(this.cbToMonth_SelectedIndexChanged);
+        
             // 
             // cbFromMonth
             // 
@@ -211,7 +213,7 @@
             this.cbFromMonth.Name = "cbFromMonth";
             this.cbFromMonth.Size = new System.Drawing.Size(40, 20);
             this.cbFromMonth.TabIndex = 0;
-            this.cbFromMonth.SelectedIndexChanged += new System.EventHandler(this.cbFromMonth_SelectedIndexChanged);
+           
             // 
             // cbToYear
             // 
@@ -220,7 +222,7 @@
             this.cbToYear.Name = "cbToYear";
             this.cbToYear.Size = new System.Drawing.Size(53, 20);
             this.cbToYear.TabIndex = 0;
-            this.cbToYear.SelectedIndexChanged += new System.EventHandler(this.cbToYear_SelectedIndexChanged);
+            
             // 
             // cbFromYear
             // 
@@ -229,7 +231,7 @@
             this.cbFromYear.Name = "cbFromYear";
             this.cbFromYear.Size = new System.Drawing.Size(55, 20);
             this.cbFromYear.TabIndex = 0;
-            this.cbFromYear.SelectedIndexChanged += new System.EventHandler(this.cbFromYear_SelectedIndexChanged);
+        
             // 
             // DateFilter
             // 

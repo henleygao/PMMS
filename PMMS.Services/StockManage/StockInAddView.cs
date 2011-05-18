@@ -29,6 +29,11 @@ namespace PMMS.Services.StockManage
         public string Remark { get; set; }
 
         /// <summary>
+        /// 入库日期
+        /// </summary>
+        public DateTime StockInDateTime { get; set; }
+
+        /// <summary>
         /// 入库单明细
         /// </summary>
         public virtual IList<StockInDetailAddView> StockInDetails { get; set; }

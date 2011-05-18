@@ -33,7 +33,7 @@ namespace PMMS.Services.StockManage
         /// <summary>
         /// 入库日期
         /// </summary>
-        public DateTime CreateDateTime { get; set; }
+        public DateTime StockInDateTime { get; set; }
 
         /// <summary>
         /// 审批者

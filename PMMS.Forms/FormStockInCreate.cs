@@ -18,14 +18,13 @@ namespace PMMS.Forms
         IStockInLogic stockInLogic;
         List<StockInDetailView> details = new List<StockInDetailView>();
 
-        FormMain formmain;
+        FormMain formMain;
 
-        public FormStockInCreate(FormMain formmain)
+        public FormStockInCreate(FormMain formMain)
         {
             InitializeComponent();
             this.stockInLogic = UnityControllerFactory.Container.Resolve<IStockInLogic>();
-            dgvPlus.DataSource = details;
-            this.formmain = formmain;
+            this.formMain = formMain;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -35,23 +34,38 @@ namespace PMMS.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            AddPlusToTable();
+        }
+
+        public void AddPlusToTable()
+        {
             string plusNo = txtPlusNo.Text.Trim();
-            if (!string.IsNullOrEmpty(plusNo))
+            try
             {
-                if (!details.Select(item => item.PlusMaterialNo).Contains(plusNo))
+
+
+                if (!string.IsNullOrEmpty(plusNo))
                 {
-                    var detail = stockInLogic.GetStockInDetail(plusNo);
-                    details.Add(detail);
-                    var ds = new List<StockInDetailView>();
-                    foreach (var item in details)
-                        ds.Add(item);
-                    ds.Reverse();
-                    dgvPlus.DataSource = ds;
-                    dgvPlus.Rows[0].Cells[0].Selected = false;
-                    dgvPlus.Rows[0].Cells["Count"].Selected = true;
-                    dgvPlus.CurrentCell = dgvPlus.Rows[0].Cells["Count"];
-                    dgvPlus.BeginEdit(true);
+                    if (!details.Select(item => item.PlusMaterialNo).Contains(plusNo))
+                    {
+                        var detail = stockInLogic.GetStockInDetail(plusNo);
+                        details.Add(detail);
+                        var ds = new List<StockInDetailView>();
+                        foreach (var item in details)
+                            ds.Add(item);
+                        ds.Reverse();
+                        dgvPlus.DataSource = ds;
+                        dgvPlus.Rows[0].Cells[0].Selected = false;
+                        dgvPlus.Rows[0].Cells["Count"].Selected = true;
+                        dgvPlus.CurrentCell = dgvPlus.Rows[0].Cells["Count"];
+                        dgvPlus.BeginEdit(true);
+                    }
                 }
+            }
+            catch (NotExistException)
+            {
+                MessageBox.Show("该面料没有找到.");
+                txtPlusNo.Focus();
             }
         }
 
@@ -78,6 +92,7 @@ namespace PMMS.Forms
                     PlusMaterialId = Convert.ToInt32(row.Cells["PlusMaterialId"].Value),
                     Count = Convert.ToSingle(row.Cells["Count"].Value),
                     Price = Convert.ToSingle(row.Cells["Price"].Value),
+
                 });
             }
             try
@@ -88,9 +103,10 @@ namespace PMMS.Forms
                     No = no,
                     Remark = txtRemark.Text,
                     StockInType = this.rbPurchase.Checked ? StockInType.Purchase : StockInType.Returned,
-                    StockInDetails = stockInDetails
+                    StockInDetails = stockInDetails,
+                    StockInDateTime = dtpStockInDate.Value
                 });
-                formmain.BindStockInTable();
+                formMain.BindStockInTable();
                 this.Close();
             }
             catch (RepeatException)
@@ -104,6 +120,15 @@ namespace PMMS.Forms
         {
             dgvPlus.RowHeadersWidth = 50;
             dgvPlus.TopLeftHeaderCell.Value = "序号";
+            dgvPlus.AutoGenerateColumns = false; //取消自动生成列
+            //dgvPlus.DataSource = null;
+            dgvPlus.DataSource = details;
+            //dgvPlus.Columns["PlusMaterialNo"].DisplayIndex = 0;
+            //dgvPlus.Columns["PlusMaterialName"].DisplayIndex = 1;
+            //dgvPlus.Columns["Count"].DisplayIndex = 2;
+            //dgvPlus.Columns["Price"].DisplayIndex = 3;
+            //dgvPlus.Columns["Amount"].DisplayIndex = 4;
+            //dgvPlus.Columns["PlusMaterialRemark"].DisplayIndex = 5;
         }
 
         private void dgvPlus_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -156,6 +181,7 @@ namespace PMMS.Forms
                     float price = Convert.ToSingle(dgvPlus.Rows[e.RowIndex].Cells["Price"].Value);
                     dgvPlus.Rows[e.RowIndex].Cells["Amount"].Value = count * price;
                     dgvPlus.Refresh();
+                    txtRemark.Focus();
                 }
                 catch (Exception)
                 {
@@ -173,6 +199,24 @@ namespace PMMS.Forms
             {
                 MessageBox.Show("请输入数值.");
             }
+        }
+
+        private void txtNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txtPlusNo.Focus();
+        }
+
+        private void txtPlusNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                AddPlusToTable();
+        }
+
+        private void txtRemark_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                this.btnSave.Focus();
         }
 
     }

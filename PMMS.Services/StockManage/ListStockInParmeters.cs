@@ -16,37 +16,27 @@ namespace PMMS.Services.StockManage
         /// <summary>
         /// 入库类型
         /// </summary>
-        public StockInType Type { get; set; }
+        public StockInType? Type { get; set; }
 
         /// <summary>
         /// 状态
         /// </summary>
-        public StockInStatus Status { get; set; }
+        public StockInStatus? Status { get; set; }
 
         /// <summary>
         /// 入库日期
         /// </summary>
-        public DateTime? FromCreateDateTime { get; set; }
+        public DateRange CreateDateRange { get; set; }
 
         /// <summary>
-        /// 入库日期
+        /// 备注
         /// </summary>
-        public DateTime? ToCreateDateTime { get; set; }
-
-        /// <summary>
-        /// 审批者
-        /// </summary>
-        public string Approver { get; set; }
+        public string Remark { get; set; }
 
         /// <summary>
         /// 审批日期
         /// </summary>
-        public DateTime? FromApproveDateTime { get; set; }
-
-        /// <summary>
-        /// 审批日期
-        /// </summary>
-        public DateTime? ToApproveDateTime { get; set; }
+        public DateRange ApproveDateRange { get; set; }
 
     }
 }

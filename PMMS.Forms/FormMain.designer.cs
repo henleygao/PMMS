@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUser = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPlusMaterial = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,15 +59,6 @@
             this.btnStockOutAdd = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dgvStockOut = new System.Windows.Forms.DataGridView();
-            this.StockOutId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockOutNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockOutStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StocuOutCreateDatetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockOutCreater = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockOutApprover = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockOutApproveDatetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockOutAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockOutRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelStockOut = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -92,16 +84,6 @@
             this.btnStockAdd = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgvStockIn = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApproveDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Approver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelStockInSearch = new System.Windows.Forms.Panel();
             this.cbStockInStatus = new System.Windows.Forms.ComboBox();
             this.cbStokcInType = new System.Windows.Forms.ComboBox();
@@ -111,14 +93,33 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtRemark = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtStockInNo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tsslUserInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtRemark = new System.Windows.Forms.TextBox();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockInDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApproveDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Approver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOutId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOutNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOutStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOutDatetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOutCreater = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOutApprover = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOutApproveDatetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOutAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOutRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.cmsStouckOut.SuspendLayout();
             this.cmsPlusMaterial.SuspendLayout();
@@ -326,19 +327,19 @@
             // dgvStockOut
             // 
             this.dgvStockOut.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvStockOut.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvStockOut.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvStockOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStockOut.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StockOutId,
             this.StockOutNo,
             this.StockOutStatus,
-            this.StocuOutCreateDatetime,
+            this.StockOutDatetime,
             this.StockOutCreater,
             this.StockOutApprover,
             this.StockOutApproveDatetime,
@@ -348,77 +349,13 @@
             this.dgvStockOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStockOut.Location = new System.Drawing.Point(0, 0);
             this.dgvStockOut.Name = "dgvStockOut";
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Silver;
-            this.dgvStockOut.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Silver;
+            this.dgvStockOut.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvStockOut.RowTemplate.Height = 23;
             this.dgvStockOut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStockOut.Size = new System.Drawing.Size(1005, 497);
             this.dgvStockOut.TabIndex = 0;
             this.dgvStockOut.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStockOut_DataBindingComplete);
-            // 
-            // StockOutId
-            // 
-            this.StockOutId.DataPropertyName = "Id";
-            this.StockOutId.HeaderText = "Id";
-            this.StockOutId.Name = "StockOutId";
-            this.StockOutId.Visible = false;
-            // 
-            // StockOutNo
-            // 
-            this.StockOutNo.DataPropertyName = "No";
-            this.StockOutNo.HeaderText = "业务单号";
-            this.StockOutNo.Name = "StockOutNo";
-            // 
-            // StockOutStatus
-            // 
-            this.StockOutStatus.DataPropertyName = "Status";
-            this.StockOutStatus.HeaderText = "状态";
-            this.StockOutStatus.Name = "StockOutStatus";
-            // 
-            // StocuOutCreateDatetime
-            // 
-            this.StocuOutCreateDatetime.DataPropertyName = "CreateDatetime";
-            dataGridViewCellStyle7.Format = "d";
-            dataGridViewCellStyle7.NullValue = null;
-            this.StocuOutCreateDatetime.DefaultCellStyle = dataGridViewCellStyle7;
-            this.StocuOutCreateDatetime.HeaderText = "日期";
-            this.StocuOutCreateDatetime.Name = "StocuOutCreateDatetime";
-            this.StocuOutCreateDatetime.Width = 80;
-            // 
-            // StockOutCreater
-            // 
-            this.StockOutCreater.DataPropertyName = "Creater";
-            this.StockOutCreater.HeaderText = "开单员";
-            this.StockOutCreater.Name = "StockOutCreater";
-            this.StockOutCreater.ReadOnly = true;
-            // 
-            // StockOutApprover
-            // 
-            this.StockOutApprover.DataPropertyName = "Approver";
-            this.StockOutApprover.HeaderText = "检货员";
-            this.StockOutApprover.Name = "StockOutApprover";
-            this.StockOutApprover.ReadOnly = true;
-            // 
-            // StockOutApproveDatetime
-            // 
-            this.StockOutApproveDatetime.DataPropertyName = "ApproveDatetime";
-            this.StockOutApproveDatetime.HeaderText = "检货日期";
-            this.StockOutApproveDatetime.Name = "StockOutApproveDatetime";
-            this.StockOutApproveDatetime.ReadOnly = true;
-            // 
-            // StockOutAmount
-            // 
-            this.StockOutAmount.DataPropertyName = "Amount";
-            this.StockOutAmount.HeaderText = "金额";
-            this.StockOutAmount.Name = "StockOutAmount";
-            this.StockOutAmount.ReadOnly = true;
-            // 
-            // StockOutRemark
-            // 
-            this.StockOutRemark.DataPropertyName = "Remark";
-            this.StockOutRemark.HeaderText = "备注";
-            this.StockOutRemark.Name = "StockOutRemark";
-            this.StockOutRemark.ReadOnly = true;
             // 
             // PanelStockOut
             // 
@@ -494,9 +431,9 @@
             // 
             // btnStockOutSearch
             // 
-            this.btnStockOutSearch.Location = new System.Drawing.Point(45, 10);
+            this.btnStockOutSearch.Location = new System.Drawing.Point(18, 8);
             this.btnStockOutSearch.Name = "btnStockOutSearch";
-            this.btnStockOutSearch.Size = new System.Drawing.Size(75, 39);
+            this.btnStockOutSearch.Size = new System.Drawing.Size(75, 29);
             this.btnStockOutSearch.TabIndex = 0;
             this.btnStockOutSearch.Text = "查询";
             this.btnStockOutSearch.UseVisualStyleBackColor = true;
@@ -653,15 +590,17 @@
             // 
             // dgvStockIn
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dgvStockIn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStockIn.BackgroundColor = System.Drawing.Color.White;
             this.dgvStockIn.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvStockIn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvStockIn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStockIn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStockIn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -669,7 +608,7 @@
             this.Status,
             this.Type,
             this.dataGridViewTextBoxColumn4,
-            this.CreateDateTime,
+            this.StockInDateTime,
             this.ApproveDateTime,
             this.Approver,
             this.Amount,
@@ -678,80 +617,15 @@
             this.dgvStockIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStockIn.Location = new System.Drawing.Point(0, 0);
             this.dgvStockIn.Name = "dgvStockIn";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvStockIn.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvStockIn.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvStockIn.RowTemplate.Height = 23;
             this.dgvStockIn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStockIn.Size = new System.Drawing.Size(1005, 488);
             this.dgvStockIn.TabIndex = 1;
             this.dgvStockIn.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStockIn_DataBindingComplete);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // No
-            // 
-            this.No.DataPropertyName = "No";
-            this.No.HeaderText = "业务单号";
-            this.No.Name = "No";
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "状态";
-            this.Status.Name = "Status";
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "入库类型";
-            this.Type.Name = "Type";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Creater";
-            this.dataGridViewTextBoxColumn4.HeaderText = "开单员";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 80;
-            // 
-            // CreateDateTime
-            // 
-            this.CreateDateTime.DataPropertyName = "CreateDateTime";
-            this.CreateDateTime.HeaderText = "开单日期";
-            this.CreateDateTime.Name = "CreateDateTime";
-            // 
-            // ApproveDateTime
-            // 
-            this.ApproveDateTime.DataPropertyName = "ApproveDateTime";
-            this.ApproveDateTime.HeaderText = "检验日期";
-            this.ApproveDateTime.Name = "ApproveDateTime";
-            this.ApproveDateTime.ReadOnly = true;
-            // 
-            // Approver
-            // 
-            this.Approver.DataPropertyName = "Approver";
-            this.Approver.HeaderText = "检验员";
-            this.Approver.Name = "Approver";
-            this.Approver.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "金额";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // Column28
-            // 
-            this.Column28.DataPropertyName = "Remark";
-            this.Column28.HeaderText = "备注";
-            this.Column28.Name = "Column28";
             // 
             // panelStockInSearch
             // 
@@ -833,7 +707,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 0;
-            this.label2.Text = "检验日期";
+            this.label2.Text = "检货日期";
             // 
             // label11
             // 
@@ -852,6 +726,22 @@
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "状态";
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.Location = new System.Drawing.Point(257, 39);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(100, 21);
+            this.txtRemark.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(222, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "备注";
             // 
             // txtStockInNo
             // 
@@ -904,21 +794,134 @@
             this.panelMain.Size = new System.Drawing.Size(1019, 595);
             this.panelMain.TabIndex = 4;
             // 
-            // label3
+            // Id
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(222, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "备注";
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
             // 
-            // txtRemark
+            // No
             // 
-            this.txtRemark.Location = new System.Drawing.Point(257, 39);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(100, 21);
-            this.txtRemark.TabIndex = 2;
+            this.No.DataPropertyName = "No";
+            this.No.HeaderText = "业务单号";
+            this.No.Name = "No";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "状态";
+            this.Status.Name = "Status";
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "入库类型";
+            this.Type.Name = "Type";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Creater";
+            this.dataGridViewTextBoxColumn4.HeaderText = "开单员";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 80;
+            // 
+            // StockInDateTime
+            // 
+            this.StockInDateTime.DataPropertyName = "StockInDateTime";
+            this.StockInDateTime.HeaderText = "入库日期";
+            this.StockInDateTime.Name = "StockInDateTime";
+            // 
+            // ApproveDateTime
+            // 
+            this.ApproveDateTime.DataPropertyName = "ApproveDateTime";
+            this.ApproveDateTime.HeaderText = "检货日期";
+            this.ApproveDateTime.Name = "ApproveDateTime";
+            this.ApproveDateTime.ReadOnly = true;
+            // 
+            // Approver
+            // 
+            this.Approver.DataPropertyName = "Approver";
+            this.Approver.HeaderText = "检验员";
+            this.Approver.Name = "Approver";
+            this.Approver.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "金额";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // Column28
+            // 
+            this.Column28.DataPropertyName = "Remark";
+            this.Column28.HeaderText = "备注";
+            this.Column28.Name = "Column28";
+            // 
+            // StockOutId
+            // 
+            this.StockOutId.DataPropertyName = "Id";
+            this.StockOutId.HeaderText = "Id";
+            this.StockOutId.Name = "StockOutId";
+            this.StockOutId.Visible = false;
+            // 
+            // StockOutNo
+            // 
+            this.StockOutNo.DataPropertyName = "No";
+            this.StockOutNo.HeaderText = "业务单号";
+            this.StockOutNo.Name = "StockOutNo";
+            // 
+            // StockOutStatus
+            // 
+            this.StockOutStatus.DataPropertyName = "Status";
+            this.StockOutStatus.HeaderText = "状态";
+            this.StockOutStatus.Name = "StockOutStatus";
+            // 
+            // StockOutDatetime
+            // 
+            this.StockOutDatetime.DataPropertyName = "StockOutDatetime";
+            dataGridViewCellStyle8.Format = "d";
+            dataGridViewCellStyle8.NullValue = null;
+            this.StockOutDatetime.DefaultCellStyle = dataGridViewCellStyle8;
+            this.StockOutDatetime.HeaderText = "出库日期";
+            this.StockOutDatetime.Name = "StockOutDatetime";
+            this.StockOutDatetime.Width = 80;
+            // 
+            // StockOutCreater
+            // 
+            this.StockOutCreater.DataPropertyName = "Creater";
+            this.StockOutCreater.HeaderText = "开单员";
+            this.StockOutCreater.Name = "StockOutCreater";
+            this.StockOutCreater.ReadOnly = true;
+            // 
+            // StockOutApprover
+            // 
+            this.StockOutApprover.DataPropertyName = "Approver";
+            this.StockOutApprover.HeaderText = "检货员";
+            this.StockOutApprover.Name = "StockOutApprover";
+            this.StockOutApprover.ReadOnly = true;
+            // 
+            // StockOutApproveDatetime
+            // 
+            this.StockOutApproveDatetime.DataPropertyName = "ApproveDatetime";
+            this.StockOutApproveDatetime.HeaderText = "检货日期";
+            this.StockOutApproveDatetime.Name = "StockOutApproveDatetime";
+            this.StockOutApproveDatetime.ReadOnly = true;
+            // 
+            // StockOutAmount
+            // 
+            this.StockOutAmount.DataPropertyName = "Amount";
+            this.StockOutAmount.HeaderText = "金额";
+            this.StockOutAmount.Name = "StockOutAmount";
+            this.StockOutAmount.ReadOnly = true;
+            // 
+            // StockOutRemark
+            // 
+            this.StockOutRemark.DataPropertyName = "Remark";
+            this.StockOutRemark.HeaderText = "备注";
+            this.StockOutRemark.Name = "StockOutRemark";
+            this.StockOutRemark.ReadOnly = true;
             // 
             // FormMain
             // 
@@ -1023,12 +1026,18 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tsslUserInfo;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.ComboBox cbStokcInType;
+        private System.Windows.Forms.ComboBox cbStockInStatus;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtRemark;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockInDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApproveDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Approver;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
@@ -1036,18 +1045,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutId;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StocuOutCreateDatetime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockOutDatetime;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutCreater;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutApprover;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutApproveDatetime;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutRemark;
-        private System.Windows.Forms.ComboBox cbStokcInType;
-        private System.Windows.Forms.ComboBox cbStockInStatus;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtRemark;
-        private System.Windows.Forms.Label label3;
 
     }
 }

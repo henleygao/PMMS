@@ -11,6 +11,7 @@ using PMMS.Services.System;
 using PMMS.Services.StockManage;
 using PMMS.Forms.Utils;
 using Microsoft.Practices.Unity;
+using PMMS.Enum;
 
 namespace PMMS.Forms
 {
@@ -79,7 +80,30 @@ namespace PMMS.Forms
 
         public void BindStockInTable()
         {
-            dgvStockIn.DataSource = stockInLogic.ListStockIn(null);
+            var stockInDateRange = dfStockIn.DateRange;
+            var approveDateRange = dfApprove.DateRange;
+
+            StockInStatus? stockInStatus = null;
+            if (cbStockInStatus.Text == "草稿")
+                stockInStatus = StockInStatus.Normal;
+            if (cbStockInStatus.Text == "已检货")
+                stockInStatus = StockInStatus.Approve;
+
+            StockInType? stockType = null;
+            if (cbStokcInType.Text == "采购入库")
+                stockType = StockInType.Purchase;
+            if (cbStokcInType.Text == "退货入库")
+                stockType = StockInType.Returned;
+
+            dgvStockIn.DataSource = stockInLogic.ListStockIn(new ListStockInParmeters()
+            {
+                No = txtStockInNo.Text,
+                ApproveDateRange = approveDateRange,
+                CreateDateRange = stockInDateRange,
+                Status = stockInStatus,
+                Type = stockType,
+                Remark = txtRemark.Text
+            });
         }
 
         private void dgvStockIn_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -95,7 +119,7 @@ namespace PMMS.Forms
 
 
         /// <summary>
-        /// 检货
+        /// 入库检货
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

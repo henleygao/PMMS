@@ -20,6 +20,8 @@ namespace PMMS.Services.StockManage
         /// <summary>
         /// 单价
         /// </summary>
-        public float Price{ get; set; }
+        public float Price { get; set; }
+
+ 
     }
 }

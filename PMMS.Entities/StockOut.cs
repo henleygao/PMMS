@@ -24,9 +24,9 @@ namespace PMMS.Entities
         public virtual StockOutStatus Status { get; set; }
 
         /// <summary>
-        /// 创建时间
+        /// 出库时间
         /// </summary>
-        public virtual DateTime CreateDateTime { get; set; }
+        public virtual DateTime StockOutDateTime { get; set; }
 
         /// <summary>
         /// 创建者
@@ -47,6 +47,11 @@ namespace PMMS.Entities
         /// 备注
         /// </summary>
         public virtual string Remark { get; set; }
+
+        /// <summary>
+        /// 创建日期
+        /// </summary>
+        public virtual DateTime CreateDateTime { get; set; }
 
         /// <summary>
         /// 出库单明细

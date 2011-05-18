@@ -11,20 +11,18 @@ namespace PMMS.Forms
 {
     public partial class DateFilter : UserControl
     {
-        public DateTime? DateFrom { get; private set; }
-
-        public DateTime? DateTo { get; private set; }
+        public DateRange DateRange { get; set; }
 
         public DateFilter(Point point)
         {
             InitializeComponent();
+            DateRange = new DateRange();
             this.Location = point;
             panelDtp.Visible = false;
             panelMonth.Visible = false;
 
-            cbFromYear.SelectedIndex = 0;
+
             cbFromMonth.SelectedIndex = 0;
-            cbToYear.SelectedIndex = 0;
             cbToMonth.SelectedIndex = 0;
 
             for (int i = DateTime.Now.Year - 5; i < DateTime.Now.Year + 5; i++)
@@ -32,7 +30,14 @@ namespace PMMS.Forms
                 cbFromYear.Items.Add(i);
                 cbToYear.Items.Add(i);
             }
+            cbFromYear.SelectedIndex = 0;
+            cbToYear.SelectedIndex = 0;
+            cbDateFilterType.SelectedIndex = 0;
+            cbFromYear.SelectedIndexChanged += new System.EventHandler(cbFromYear_SelectedIndexChanged);
+            cbToYear.SelectedIndexChanged += new System.EventHandler(cbToYear_SelectedIndexChanged);
 
+            this.cbToMonth.SelectedIndexChanged += new System.EventHandler(this.cbToMonth_SelectedIndexChanged);
+            this.cbFromMonth.SelectedIndexChanged += new System.EventHandler(this.cbFromMonth_SelectedIndexChanged);
         }
 
         private void DateFilter_Load(object sender, EventArgs e)
@@ -62,33 +67,33 @@ namespace PMMS.Forms
             var selectText = cbDateFilterType.Text;
             if (selectText == "今天")
             {
-                DateFrom = today;
-                DateTo = today.AddDays(1);
+                DateRange.DateFrom = today;
+                DateRange.DateTo = today.AddDays(1);
             }
             else if (selectText == "昨天")
             {
-                DateFrom = today.AddDays(-1);
-                DateTo = today;
+                DateRange.DateFrom = today.AddDays(-1);
+                DateRange.DateTo = today;
             }
             else if (selectText == "本周")
             {
-                DateFrom = GetWeekFirstDate(DateTime.Today);
-                DateTo = DateFrom.Value.AddDays(7);
+                DateRange.DateFrom = GetWeekFirstDate(DateTime.Today);
+                DateRange.DateTo = DateRange.DateFrom.Value.AddDays(7);
             }
             else if (selectText == "本月")
             {
-                DateFrom = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-                DateTo = DateFrom.Value.AddMonths(1);
+                DateRange.DateFrom = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                DateRange.DateTo = DateRange.DateFrom.Value.AddMonths(1);
             }
             else if (selectText == "上月")
             {
-                DateFrom = new DateTime(today.AddMonths(-1).Year, today.AddMonths(-1).Month, 1);
-                DateTo = DateFrom.Value.AddMonths(1);
+                DateRange.DateFrom = new DateTime(today.AddMonths(-1).Year, today.AddMonths(-1).Month, 1);
+                DateRange.DateTo = DateRange.DateFrom.Value.AddMonths(1);
             }
             else if (selectText == "今年")
             {
-                DateFrom = new DateTime(today.Year, 1, 1);
-                DateTo = DateFrom.Value.AddYears(1);
+                DateRange.DateFrom = new DateTime(today.Year, 1, 1);
+                DateRange.DateTo = DateRange.DateFrom.Value.AddYears(1);
             }
             else if (selectText == "日期段")
             {
@@ -100,8 +105,8 @@ namespace PMMS.Forms
             }
             else
             {
-                DateFrom = null;
-                DateTo = null;
+                DateRange.DateFrom = null;
+                DateRange.DateTo = null;
             }
         }
 
@@ -142,14 +147,14 @@ namespace PMMS.Forms
 
         private void SetValueByDaySelect()
         {
-            DateFrom = dtpFrom.Value;
-            DateTo = dtpTo.Value;
+            DateRange.DateFrom = dtpFrom.Value;
+            DateRange.DateTo = dtpTo.Value;
         }
 
         private void SetValueByMonthSelect()
         {
-            DateFrom = new DateTime(Convert.ToInt32(cbFromYear.Text), Convert.ToInt32(cbFromMonth.Text), 1);
-            DateTo = new DateTime(Convert.ToInt32(cbToYear.Text), Convert.ToInt32(cbToMonth.Text), 1);
+            DateRange.DateFrom = new DateTime(Convert.ToInt32(cbFromYear.Text), Convert.ToInt32(cbFromMonth.Text), 1);
+            DateRange.DateTo = new DateTime(Convert.ToInt32(cbToYear.Text), Convert.ToInt32(cbToMonth.Text), 1);
         }
 
         private void cbFromYear_SelectedIndexChanged(object sender, EventArgs e)
