@@ -14,6 +14,7 @@ using PMMS.Enum;
 using PMMS.Services.StockManage;
 using PMMS.Forms.Utils;
 using Microsoft.Practices.Unity;
+using System.IO;
 
 namespace PMMS.Forms
 {
@@ -60,6 +61,7 @@ namespace PMMS.Forms
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            skinEngine.SkinFile = Application.StartupPath + @"\skin\MP10\MP10.ssk";
             var users = userLogic.ListLoginUser();
             cbUsers.DataSource = users;
             cbUsers.DisplayMember = "AccountAndName";

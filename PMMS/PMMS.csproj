@@ -55,6 +55,7 @@
     <Compile Include="Exceptions\LoginException.cs" />
     <Compile Include="Exceptions\NotExistException.cs" />
     <Compile Include="Exceptions\RepeatException.cs" />
+    <Compile Include="Exceptions\StockOutCountMoreThanStockCountException.cs" />
     <Compile Include="NameIdView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

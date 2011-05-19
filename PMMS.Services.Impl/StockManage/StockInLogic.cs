@@ -25,11 +25,11 @@ namespace PMMS.Services.Impl.StockManage
 
         public void AddStockIn(StockInAddView view)
         {
-            var plus = (from s in session.Query<StockIn>()
-                        where s.No == view.No
-                        select s).FirstOrDefault();
+            var exists = (from s in session.Query<StockIn>()
+                          where s.No == view.No
+                          select s).FirstOrDefault();
 
-            if (plus != null)
+            if (exists != null)
                 throw new RepeatException();
 
             var stockIn = new StockIn()

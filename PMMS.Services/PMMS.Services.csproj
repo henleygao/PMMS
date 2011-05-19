@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4F01FB35-58CA-4666-B209-98CE33C7FAB6}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -49,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockManage\IStockOutLogic.cs" />
     <Compile Include="StockManage\ListStockInParmeters.cs" />
+    <Compile Include="StockManage\ListStockOutParmeters.cs" />
     <Compile Include="StockManage\StockInAddView.cs" />
     <Compile Include="StockManage\StockInDetailAddView.cs" />
     <Compile Include="StockManage\StockInDetailView.cs" />
@@ -75,6 +76,9 @@
       <Project>{D8D22D00-4D2C-48CA-8A9E-FDCFCDB909B7}</Project>
       <Name>PMMS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

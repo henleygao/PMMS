@@ -22,8 +22,11 @@ namespace PMMS.Forms
         IStockInLogic stockInLogic;
         IStockOutLogic stockOutLogic;
 
-        private DateFilter dfStockIn = new DateFilter(new Point(438, 5));
-        private DateFilter dfApprove = new DateFilter(new Point(438, 33));
+        DateFilter dfStockIn = new DateFilter(new Point(438, 5));
+        DateFilter dfStockInApprove = new DateFilter(new Point(438, 33));
+
+        DateFilter dfStockOut = new DateFilter(new Point(254, 4));
+        DateFilter dfStockOutApprove = new DateFilter(new Point(254, 32));
 
         public FormMain()
         {
@@ -44,7 +47,10 @@ namespace PMMS.Forms
             BindStockInTable();
 
             panelStockInSearch.Controls.Add(dfStockIn);
-            panelStockInSearch.Controls.Add(dfApprove);
+            panelStockInSearch.Controls.Add(dfStockInApprove);
+
+            PanelStockOut.Controls.Add(dfStockOut);
+            PanelStockOut.Controls.Add(dfStockOutApprove);
 
             cbStockInStatus.SelectedIndex = 0;
             cbStokcInType.SelectedIndex = 0;
@@ -81,7 +87,7 @@ namespace PMMS.Forms
         public void BindStockInTable()
         {
             var stockInDateRange = dfStockIn.DateRange;
-            var approveDateRange = dfApprove.DateRange;
+            var approveDateRange = dfStockInApprove.DateRange;
 
             StockInStatus? stockInStatus = null;
             if (cbStockInStatus.Text == "草稿")
@@ -157,7 +163,7 @@ namespace PMMS.Forms
 
         private void btnStockOutAdd_Click(object sender, EventArgs e)
         {
-            new FormStockOutCreate().ShowDialog();
+            new FormStockOutCreate(this).ShowDialog();
         }
 
         /// <summary>
@@ -167,7 +173,7 @@ namespace PMMS.Forms
         /// <param name="e"></param>
         private void btnStockOutSearch_Click(object sender, EventArgs e)
         {
-            this.dgvStockOut.DataSource = stockOutLogic.ListStockOut();
+            BindStockOutTable();
         }
 
         private void tsmiStockOutApprove_Click(object sender, EventArgs e)
@@ -186,7 +192,19 @@ namespace PMMS.Forms
 
         public void BindStockOutTable()
         {
-            dgvStockOut.DataSource = stockOutLogic.ListStockOut();
+            StockOutStatus? stockOutStatus = null;
+            if (cbStockOutStatus.Text == "草稿")
+                stockOutStatus = PMMS.Enum.StockOutStatus.Normal;
+            if (cbStockOutStatus.Text == "已检货")
+                stockOutStatus = PMMS.Enum.StockOutStatus.Approve;
+
+            dgvStockOut.DataSource = stockOutLogic.ListStockOut(new ListStockOutParmeters()
+            {
+                No = txtStockOutNo.Text,
+                CreateDateRange = dfStockOut.DateRange,
+                ApproveDateRange = dfStockOutApprove.DateRange,
+                Status = stockOutStatus
+            });
         }
         #endregion
 
@@ -195,6 +213,8 @@ namespace PMMS.Forms
             if (tabControl.SelectedTab.Text == tabPageStockOut.Text)
                 BindStockOutTable();
         }
+
+
 
 
 

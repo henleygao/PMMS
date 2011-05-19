@@ -27,6 +27,21 @@ namespace PMMS.Forms
             this.formMain = formMain;
         }
 
+        private void FormStockIn_Load(object sender, EventArgs e)
+        {
+            dgvPlus.RowHeadersWidth = 50;
+            dgvPlus.TopLeftHeaderCell.Value = "序号";
+            dgvPlus.AutoGenerateColumns = false; //取消自动生成列
+            //dgvPlus.DataSource = null;
+            dgvPlus.DataSource = details;
+            //dgvPlus.Columns["PlusMaterialNo"].DisplayIndex = 0;
+            //dgvPlus.Columns["PlusMaterialName"].DisplayIndex = 1;
+            //dgvPlus.Columns["Count"].DisplayIndex = 2;
+            //dgvPlus.Columns["Price"].DisplayIndex = 3;
+            //dgvPlus.Columns["Amount"].DisplayIndex = 4;
+            //dgvPlus.Columns["PlusMaterialRemark"].DisplayIndex = 5;
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -37,13 +52,11 @@ namespace PMMS.Forms
             AddPlusToTable();
         }
 
-        public void AddPlusToTable()
+        private void AddPlusToTable()
         {
             string plusNo = txtPlusNo.Text.Trim();
             try
             {
-
-
                 if (!string.IsNullOrEmpty(plusNo))
                 {
                     if (!details.Select(item => item.PlusMaterialNo).Contains(plusNo))
@@ -74,7 +87,7 @@ namespace PMMS.Forms
             string no = txtNo.Text.Trim();
             if (string.IsNullOrEmpty(no))
             {
-                MessageBox.Show("入库单号不能为空！");
+                MessageBox.Show("业务单号不能为空！");
                 return;
             }
 
@@ -92,7 +105,6 @@ namespace PMMS.Forms
                     PlusMaterialId = Convert.ToInt32(row.Cells["PlusMaterialId"].Value),
                     Count = Convert.ToSingle(row.Cells["Count"].Value),
                     Price = Convert.ToSingle(row.Cells["Price"].Value),
-
                 });
             }
             try
@@ -116,21 +128,6 @@ namespace PMMS.Forms
             }
         }
 
-        private void FormStockIn_Load(object sender, EventArgs e)
-        {
-            dgvPlus.RowHeadersWidth = 50;
-            dgvPlus.TopLeftHeaderCell.Value = "序号";
-            dgvPlus.AutoGenerateColumns = false; //取消自动生成列
-            //dgvPlus.DataSource = null;
-            dgvPlus.DataSource = details;
-            //dgvPlus.Columns["PlusMaterialNo"].DisplayIndex = 0;
-            //dgvPlus.Columns["PlusMaterialName"].DisplayIndex = 1;
-            //dgvPlus.Columns["Count"].DisplayIndex = 2;
-            //dgvPlus.Columns["Price"].DisplayIndex = 3;
-            //dgvPlus.Columns["Amount"].DisplayIndex = 4;
-            //dgvPlus.Columns["PlusMaterialRemark"].DisplayIndex = 5;
-        }
-
         private void dgvPlus_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvPlus.Columns["PlusMaterialId"].Visible = false;
@@ -141,11 +138,6 @@ namespace PMMS.Forms
             }
         }
 
-        private void dgvPlus_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgvPlus_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -154,7 +146,6 @@ namespace PMMS.Forms
                 {
                     dgvPlus.CurrentCell = dgvPlus.Rows[0].Cells["Price"];
                 }
-
             }
         }
 
@@ -219,5 +210,6 @@ namespace PMMS.Forms
                 this.btnSave.Focus();
         }
 
+      
     }
 }

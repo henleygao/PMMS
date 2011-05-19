@@ -33,14 +33,14 @@
             this.PlusMaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlusMaterialRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlusMaterialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.dtpStockInDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpStockOutDate = new System.Windows.Forms.DateTimePicker();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtPlusNo = new System.Windows.Forms.TextBox();
@@ -60,7 +60,7 @@
             this.PlusMaterialName,
             this.Count,
             this.Price,
-            this.Column5,
+            this.Amount,
             this.PlusMaterialRemark,
             this.PlusMaterialId});
             this.dgvPlus.Location = new System.Drawing.Point(5, 73);
@@ -68,6 +68,9 @@
             this.dgvPlus.RowTemplate.Height = 23;
             this.dgvPlus.Size = new System.Drawing.Size(745, 138);
             this.dgvPlus.TabIndex = 53;
+            this.dgvPlus.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlus_CellEndEdit);
+            this.dgvPlus.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvPlus_DataError);
+            this.dgvPlus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPlus_KeyDown);
             this.dgvPlus.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPlus_DataBindingComplete);
             // 
             // Column1
@@ -85,19 +88,20 @@
             // Count
             // 
             this.Count.DataPropertyName = "Count";
-            this.Count.HeaderText = "入库数量";
+            this.Count.HeaderText = "出库数量";
             this.Count.Name = "Count";
             // 
             // Price
             // 
             this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "入库单价";
+            this.Price.HeaderText = "出库单价";
             this.Price.Name = "Price";
             // 
-            // Column5
+            // Amount
             // 
-            this.Column5.HeaderText = "入库金额";
-            this.Column5.Name = "Column5";
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "出库金额";
+            this.Amount.Name = "Amount";
             // 
             // PlusMaterialRemark
             // 
@@ -133,7 +137,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(346, 292);
+            this.btnCancel.Location = new System.Drawing.Point(370, 292);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 24);
             this.btnCancel.TabIndex = 55;
@@ -151,12 +155,12 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // dtpStockInDate
+            // dtpStockOutDate
             // 
-            this.dtpStockInDate.Location = new System.Drawing.Point(403, 35);
-            this.dtpStockInDate.Name = "dtpStockInDate";
-            this.dtpStockInDate.Size = new System.Drawing.Size(145, 21);
-            this.dtpStockInDate.TabIndex = 51;
+            this.dtpStockOutDate.Location = new System.Drawing.Point(403, 35);
+            this.dtpStockOutDate.Name = "dtpStockOutDate";
+            this.dtpStockOutDate.Size = new System.Drawing.Size(145, 21);
+            this.dtpStockOutDate.TabIndex = 51;
             // 
             // txtRemark
             // 
@@ -165,6 +169,7 @@
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(394, 55);
             this.txtRemark.TabIndex = 52;
+            this.txtRemark.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRemark_KeyPress);
             // 
             // label11
             // 
@@ -181,6 +186,7 @@
             this.txtPlusNo.Name = "txtPlusNo";
             this.txtPlusNo.Size = new System.Drawing.Size(69, 21);
             this.txtPlusNo.TabIndex = 48;
+            this.txtPlusNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlusNo_KeyPress);
             // 
             // label2
             // 
@@ -197,6 +203,7 @@
             this.txtNo.Name = "txtNo";
             this.txtNo.Size = new System.Drawing.Size(145, 21);
             this.txtNo.TabIndex = 45;
+            this.txtNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNo_KeyPress);
             // 
             // label12
             // 
@@ -226,7 +233,7 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dtpStockInDate);
+            this.Controls.Add(this.dtpStockOutDate);
             this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtPlusNo);
@@ -246,18 +253,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPlus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialRemark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialId;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DateTimePicker dtpStockInDate;
+        private System.Windows.Forms.DateTimePicker dtpStockOutDate;
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPlusNo;
@@ -265,5 +265,12 @@
         private System.Windows.Forms.TextBox txtNo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlusMaterialId;
     }
 }

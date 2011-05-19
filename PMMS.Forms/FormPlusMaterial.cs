@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using PMMS.Services.System;
 using PMMS.Services.Impl.System;
 using PMMS.Exceptions;
+using System.IO;
+using PMMS.Forms.Reports;
 
 namespace PMMS.Forms
 {
@@ -233,7 +235,17 @@ namespace PMMS.Forms
         /// <param name="e"></param>
         private void btnExport_Click(object sender, EventArgs e)
         {
+            var list = plusMaterialLogic.ListPlusMaterial(new ListPlusMaterialParmeters()
+                {
+                    No = txtSearchNo.Text.Trim(),
+                    Name = txtSearchName.Text.Trim(),
+                    Color = txtSearchColor.Text.Trim(),
+                    Supplier = txtSearchSupplier.Text.Trim()
+                });
 
+            var tempFileName = Path.GetTempFileName().Replace(".tmp", ".xls");
+            var templateFile = Path.Combine(Application.StartupPath, "Templates\\面料.xls");
+            new PlusMaterialReport().GetReport(list, templateFile, tempFileName);
         }
     }
 }

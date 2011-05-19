@@ -218,7 +218,6 @@
             this.dgvPlus.RowTemplate.Height = 23;
             this.dgvPlus.Size = new System.Drawing.Size(694, 221);
             this.dgvPlus.TabIndex = 8;
-            this.dgvPlus.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlus_CellValueChanged);
             this.dgvPlus.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlus_CellEndEdit);
             this.dgvPlus.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvPlus_DataError);
             this.dgvPlus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPlus_KeyDown);

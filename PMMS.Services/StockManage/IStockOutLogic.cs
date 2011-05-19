@@ -17,14 +17,21 @@ namespace PMMS.Services.StockManage
         /// 出库单列表
         /// </summary>
         /// <returns></returns>
-        IList<StockOutListView> ListStockOut();
+        IList<StockOutListView> ListStockOut(ListStockOutParmeters parmeters);
 
         /// <summary>
-        /// 根据面料ID，获取入库详细信息
+        /// 根据面料No，获取入库详细信息
         /// </summary>
         /// <param name="plusId">面料ID</param>
         /// <returns></returns>
         StockOutDetailView GetStockOutDetail(string plusNo);
+
+        /// <summary>
+        /// 根据面料ID，获取入库详细信息
+        /// </summary>
+        /// <param name="plusId"></param>
+        /// <returns></returns>
+        StockOutDetailView GetStockOutDetail(int plusId);
 
         /// <summary>
         /// 审批
