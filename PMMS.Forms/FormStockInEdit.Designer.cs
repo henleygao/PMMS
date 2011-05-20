@@ -267,6 +267,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label1);
             this.Name = "FormStockInEdit";
+            this.ShowIcon = false;
             this.Text = "编辑入库/退库单";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlus)).EndInit();
             this.ResumeLayout(false);

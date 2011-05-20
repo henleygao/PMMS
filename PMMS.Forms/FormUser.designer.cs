@@ -210,6 +210,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormUser";
+            this.ShowIcon = false;
             this.Text = "用户列表";
             this.Load += new System.EventHandler(this.FormUserList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).EndInit();

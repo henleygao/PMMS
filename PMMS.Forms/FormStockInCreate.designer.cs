@@ -216,7 +216,7 @@
             this.dgvPlus.Location = new System.Drawing.Point(0, 0);
             this.dgvPlus.Name = "dgvPlus";
             this.dgvPlus.RowTemplate.Height = 23;
-            this.dgvPlus.Size = new System.Drawing.Size(694, 221);
+            this.dgvPlus.Size = new System.Drawing.Size(691, 218);
             this.dgvPlus.TabIndex = 8;
             this.dgvPlus.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlus_CellEndEdit);
             this.dgvPlus.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvPlus_DataError);
@@ -315,7 +315,10 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "FormStockInCreate";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加入库/退料单";
             this.Load += new System.EventHandler(this.FormStockIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlus)).EndInit();

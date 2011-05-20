@@ -230,6 +230,7 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Name = "FormStockOutEdit";
+            this.ShowIcon = false;
             this.Text = "FormStockOutEdit";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlus)).EndInit();
             this.ResumeLayout(false);

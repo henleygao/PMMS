@@ -63,10 +63,10 @@
             this.Amount,
             this.PlusMaterialRemark,
             this.PlusMaterialId});
-            this.dgvPlus.Location = new System.Drawing.Point(5, 73);
+            this.dgvPlus.Location = new System.Drawing.Point(0, 73);
             this.dgvPlus.Name = "dgvPlus";
             this.dgvPlus.RowTemplate.Height = 23;
-            this.dgvPlus.Size = new System.Drawing.Size(745, 138);
+            this.dgvPlus.Size = new System.Drawing.Size(694, 218);
             this.dgvPlus.TabIndex = 53;
             this.dgvPlus.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlus_CellEndEdit);
             this.dgvPlus.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvPlus_DataError);
@@ -137,7 +137,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(370, 292);
+            this.btnCancel.Location = new System.Drawing.Point(370, 386);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 24);
             this.btnCancel.TabIndex = 55;
@@ -147,7 +147,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(228, 292);
+            this.btnSave.Location = new System.Drawing.Point(228, 386);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 24);
             this.btnSave.TabIndex = 54;
@@ -164,7 +164,7 @@
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(154, 217);
+            this.txtRemark.Location = new System.Drawing.Point(154, 311);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(394, 55);
@@ -174,7 +174,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(119, 220);
+            this.label11.Location = new System.Drawing.Point(119, 314);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(29, 12);
             this.label11.TabIndex = 56;
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 323);
+            this.ClientSize = new System.Drawing.Size(694, 425);
             this.Controls.Add(this.dgvPlus);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSearch);
@@ -241,7 +241,9 @@
             this.Controls.Add(this.txtNo);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
+            this.MaximizeBox = false;
             this.Name = "FormStockOutCreate";
+            this.ShowIcon = false;
             this.Text = "添加出库单";
             this.Load += new System.EventHandler(this.FormStockOutCreate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlus)).EndInit();

@@ -24,6 +24,12 @@ namespace PMMS.Services.Impl.System
 
         public void AddUser(UserAddView view)
         {
+            var plus = (from u in session.Query<User>()
+                        where u.Account == view.Account
+                        select u).FirstOrDefault();
+            if (plus != null)
+                throw new RepeatException();
+
             session.Transaction.Begin();
             User user = new User()
             {
@@ -39,6 +45,7 @@ namespace PMMS.Services.Impl.System
         public IList<UserListView> ListUser()
         {
             var query = (from u in session.Query<User>()
+                         where u.Name != "管理员"
                          select new UserListView()
                          {
                              Account = u.Account,
@@ -51,6 +58,12 @@ namespace PMMS.Services.Impl.System
 
         public void UpdateUser(UserUpdateView view)
         {
+            var plus = (from u in session.Query<User>()
+                        where u.Account == view.Account && u.Id != view.Id
+                        select u).FirstOrDefault();
+            if (plus != null)
+                throw new RepeatException();
+
             var user = session.Get<User>(view.Id);
             user.Name = view.Name;
             user.Account = view.Account;

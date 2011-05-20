@@ -61,7 +61,7 @@ namespace PMMS.Forms
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            skinEngine.SkinFile = Application.StartupPath + @"\skin\MP10\MP10.ssk";
+            skinEngine.SkinFile = Application.StartupPath + @"\Skin\MP10\MP10.ssk";
             var users = userLogic.ListLoginUser();
             cbUsers.DataSource = users;
             cbUsers.DisplayMember = "AccountAndName";

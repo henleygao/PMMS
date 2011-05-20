@@ -10,6 +10,7 @@ using PMMS.Services.System;
 using NHibernate;
 using PMMS.Services.Impl.System;
 using PMMS.Enum;
+using PMMS.Exceptions;
 
 namespace PMMS.Forms
 {
@@ -51,9 +52,10 @@ namespace PMMS.Forms
                 });
                 dgUsers.DataSource = userLogic.ListUser();
             }
-            catch (Exception ex)
+            catch (RepeatException)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("该帐号已经存在！");
+                txtAccount.Focus();
             }
         }
 
@@ -103,12 +105,19 @@ namespace PMMS.Forms
                 MessageBox.Show("姓名不能为空!");
                 return;
             }
-            userLogic.UpdateUser(new UserUpdateView()
+            try
             {
-                Account = account,
-                Name = name,
-                Id = uid
-            });
+                userLogic.UpdateUser(new UserUpdateView()
+                {
+                    Account = account,
+                    Name = name,
+                    Id = uid
+                });
+            }
+            catch (RepeatException)
+            {
+                MessageBox.Show("该帐号已经存在！");
+            }
         }
 
         private void dgUsers_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

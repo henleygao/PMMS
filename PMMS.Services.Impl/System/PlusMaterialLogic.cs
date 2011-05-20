@@ -74,7 +74,13 @@ namespace PMMS.Services.Impl.System
 
         public void UpdatePlusMaterial(PlusMaterialUpdateView view)
         {
-            var plus = session.Get<PlusMaterial>(view.Id);
+            var plus = (from p in session.Query<PlusMaterial>()
+                        where p.No == view.No && p.Id != view.Id
+                        select p).FirstOrDefault();
+            if (plus != null)
+                throw new RepeatException();
+
+            plus = session.Get<PlusMaterial>(view.Id);
             plus.Color = view.Color;
             plus.FabricWidth = view.FabricWidth;
             plus.Name = view.Name;

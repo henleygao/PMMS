@@ -129,7 +129,7 @@ namespace PMMS.Services.Impl.StockManage
                 query = query.Where(item => item.ApprovalDateTime < parmeters.ApproveDateRange.DateTo.Value);
             }
 
-            return query.Select(s => new StockOutListView()
+            return query.OrderByDescending(item => item.CreateDateTime).Select(s => new StockOutListView()
             {
                 Id = s.Id,
                 No = s.No,

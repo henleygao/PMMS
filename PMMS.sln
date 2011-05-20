@@ -46,10 +46,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.Services", "PMMS.Servi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.Services.Impl", "PMMS.Services.Impl\PMMS.Services.Impl.csproj", "{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PMMS.Setup", "PMMS.Setup\PMMS.Setup.vdproj", "{809395C2-078D-4400-BCC6-BE0448119779}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = PMMS.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -83,6 +82,8 @@ Global
 		{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{809395C2-078D-4400-BCC6-BE0448119779}.Debug|Any CPU.ActiveCfg = Debug
+		{809395C2-078D-4400-BCC6-BE0448119779}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

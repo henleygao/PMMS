@@ -219,6 +219,7 @@
             this.dgvPlus.TabIndex = 1;
             this.dgvPlus.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPlus_CellEndEdit);
             this.dgvPlus.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgPlus_DataBindingComplete);
+            this.dgvPlus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvPlus_KeyPress);
             // 
             // No
             // 
@@ -354,7 +355,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(291, 221);
+            this.btnCancel.Location = new System.Drawing.Point(295, 227);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 10;
@@ -364,7 +365,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(145, 221);
+            this.btnSave.Location = new System.Drawing.Point(149, 227);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 9;
@@ -374,15 +375,16 @@
             // 
             // txtNo
             // 
-            this.txtNo.Location = new System.Drawing.Point(75, 23);
+            this.txtNo.Location = new System.Drawing.Point(79, 29);
             this.txtNo.Name = "txtNo";
             this.txtNo.Size = new System.Drawing.Size(145, 21);
             this.txtNo.TabIndex = 1;
+            this.txtNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNo_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(289, 30);
+            this.label1.Location = new System.Drawing.Point(293, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 88;
@@ -390,15 +392,16 @@
             // 
             // txtSupplier
             // 
-            this.txtSupplier.Location = new System.Drawing.Point(76, 50);
+            this.txtSupplier.Location = new System.Drawing.Point(79, 113);
             this.txtSupplier.Name = "txtSupplier";
-            this.txtSupplier.Size = new System.Drawing.Size(145, 21);
+            this.txtSupplier.Size = new System.Drawing.Size(394, 21);
             this.txtSupplier.TabIndex = 3;
+            this.txtSupplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSupplier_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(40, 31);
+            this.label5.Location = new System.Drawing.Point(44, 37);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 87;
@@ -407,7 +410,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(29, 59);
+            this.label8.Location = new System.Drawing.Point(32, 116);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 12);
             this.label8.TabIndex = 86;
@@ -416,7 +419,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(40, 140);
+            this.label16.Location = new System.Drawing.Point(44, 146);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(29, 12);
             this.label16.TabIndex = 82;
@@ -425,7 +428,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(40, 113);
+            this.label15.Location = new System.Drawing.Point(44, 89);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(29, 12);
             this.label15.TabIndex = 82;
@@ -434,7 +437,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(289, 86);
+            this.label10.Location = new System.Drawing.Point(44, 65);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(29, 12);
             this.label10.TabIndex = 82;
@@ -442,22 +445,24 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(75, 77);
+            this.txtPrice.Location = new System.Drawing.Point(328, 55);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(122, 21);
+            this.txtPrice.Size = new System.Drawing.Size(145, 21);
             this.txtPrice.TabIndex = 5;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(324, 22);
+            this.txtName.Location = new System.Drawing.Point(328, 28);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(145, 21);
             this.txtName.TabIndex = 2;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(204, 86);
+            this.label11.Location = new System.Drawing.Point(479, 62);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(17, 12);
             this.label11.TabIndex = 83;
@@ -465,15 +470,16 @@
             // 
             // txtColor
             // 
-            this.txtColor.Location = new System.Drawing.Point(324, 50);
+            this.txtColor.Location = new System.Drawing.Point(328, 82);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(145, 21);
             this.txtColor.TabIndex = 4;
+            this.txtColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtColor_KeyPress);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(40, 86);
+            this.label12.Location = new System.Drawing.Point(293, 64);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 12);
             this.label12.TabIndex = 85;
@@ -481,30 +487,33 @@
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(75, 140);
+            this.txtRemark.Location = new System.Drawing.Point(79, 146);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(394, 48);
             this.txtRemark.TabIndex = 8;
+            this.txtRemark.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRemark_KeyPress);
             // 
             // txtFabricWidth
             // 
-            this.txtFabricWidth.Location = new System.Drawing.Point(75, 107);
+            this.txtFabricWidth.Location = new System.Drawing.Point(79, 83);
             this.txtFabricWidth.Name = "txtFabricWidth";
             this.txtFabricWidth.Size = new System.Drawing.Size(145, 21);
             this.txtFabricWidth.TabIndex = 7;
+            this.txtFabricWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFabricWidth_KeyPress);
             // 
             // txtCount
             // 
-            this.txtCount.Location = new System.Drawing.Point(324, 77);
+            this.txtCount.Location = new System.Drawing.Point(79, 56);
             this.txtCount.Name = "txtCount";
             this.txtCount.Size = new System.Drawing.Size(145, 21);
             this.txtCount.TabIndex = 6;
+            this.txtCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCount_KeyPress);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(289, 59);
+            this.label13.Location = new System.Drawing.Point(293, 91);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 84;
@@ -517,6 +526,7 @@
             this.ClientSize = new System.Drawing.Size(903, 514);
             this.Controls.Add(this.panelMain);
             this.Name = "FormPlusMaterial";
+            this.ShowIcon = false;
             this.Text = "面料管理";
             this.Load += new System.EventHandler(this.FormPlusMaterialList_Load);
             this.panelMain.ResumeLayout(false);

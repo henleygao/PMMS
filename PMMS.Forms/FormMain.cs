@@ -214,6 +214,11 @@ namespace PMMS.Forms
                 BindStockOutTable();
         }
 
+        private void tsmiAbout_Click(object sender, EventArgs e)
+        {
+            new FormAbout().ShowDialog();
+        }
+
 
 
 

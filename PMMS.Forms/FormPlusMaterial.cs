@@ -203,18 +203,26 @@ namespace PMMS.Forms
                 MessageBox.Show("面料名称不能为空!");
                 return;
             }
-            plusMaterialLogic.UpdatePlusMaterial(new PlusMaterialUpdateView()
+            try
             {
-                Id = pid,
-                Color = color,
-                FabricWidth = fabricWidth,
-                Name = name,
-                No = no,
-                Price = price,
-                Remark = remark,
-                StockCount = stockCount,
-                Supplier = supplier
-            });
+                plusMaterialLogic.UpdatePlusMaterial(new PlusMaterialUpdateView()
+                {
+                    Id = pid,
+                    Color = color,
+                    FabricWidth = fabricWidth,
+                    Name = name,
+                    No = no,
+                    Price = price,
+                    Remark = remark,
+                    StockCount = stockCount,
+                    Supplier = supplier
+                });
+            }
+            catch (RepeatException)
+            {
+                MessageBox.Show("该编号已经存在!");
+                dgvPlus.CurrentCell = dgvPlus.Rows[e.RowIndex].Cells["No"];
+            }
         }
 
 
@@ -246,6 +254,62 @@ namespace PMMS.Forms
             var tempFileName = Path.GetTempFileName().Replace(".tmp", ".xls");
             var templateFile = Path.Combine(Application.StartupPath, "Templates\\面料.xls");
             new PlusMaterialReport().GetReport(list, templateFile, tempFileName);
+        }
+
+        private void txtNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txtName.Focus();
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txtCount.Focus();
+        }
+
+        private void txtCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txtPrice.Focus();
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                this.txtFabricWidth.Focus();
+        }
+
+        private void txtFabricWidth_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                this.txtColor.Focus();
+        }
+
+        private void txtColor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                this.txtSupplier.Focus();
+        }
+
+        private void txtSupplier_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                this.txtRemark.Focus();
+        }
+
+        private void txtRemark_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnSave.Focus();
+        }
+
+        private void dgvPlus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.KeyChar = (char)9;
+            }
         }
     }
 }
