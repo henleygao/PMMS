@@ -9,35 +9,58 @@ using PMMS.Entities;
 using PMMS.Enum;
 using PMMS.Exceptions;
 using PMMS.Services.Impl.Utils;
+using System.Configuration;
 
 namespace PMMS.Services.Impl.System
 {
     [UnitOfWork]
     public class UserLogic : IUserLogic
     {
+         string DefaultPassword = ConfigurationManager.AppSettings["DefaultPassword"].ToString();
+         string AdminAccount = ConfigurationManager.AppSettings["AdminAccount"].ToString();
         ISession session;
-
+      
         public UserLogic(ISession session)
         {
             this.session = session;
         }
 
+        public void InitUser()
+        {
+            var user = (from u in session.Query<User>()
+                        where u.Account == AdminAccount
+                        select u).FirstOrDefault();
+
+            if (user == null)
+            {
+                user = new User()
+                {
+                    Account = AdminAccount,
+                    Name = "管理员",
+                    Password = DefaultPassword,
+                    Status = UserStatus.Enable
+                };
+                session.Save(user);
+            }
+        }
+
+
         public void AddUser(UserAddView view)
         {
-            var plus = (from u in session.Query<User>()
+            var user = (from u in session.Query<User>()
                         where u.Account == view.Account
                         select u).FirstOrDefault();
-            if (plus != null)
+            if (user != null)
                 throw new RepeatException();
 
             session.Transaction.Begin();
-            User user = new User()
-            {
-                Account = view.Account,
-                Name = view.Name,
-                Password = "8888",
-                Status = UserStatus.Enable
-            };
+            user = new User()
+           {
+               Account = view.Account,
+               Name = view.Name,
+               Password = DefaultPassword,
+               Status = UserStatus.Enable
+           };
             session.Save(user);
             session.Transaction.Commit();
         }
@@ -45,7 +68,7 @@ namespace PMMS.Services.Impl.System
         public IList<UserListView> ListUser()
         {
             var query = (from u in session.Query<User>()
-                         where u.Name != "管理员"
+                         where u.Account != AdminAccount
                          select new UserListView()
                          {
                              Account = u.Account,
@@ -124,7 +147,7 @@ namespace PMMS.Services.Impl.System
             foreach (var id in uIds)
             {
                 var user = session.Get<User>(id);
-                user.Password = "8888";
+                user.Password = DefaultPassword;
                 session.Update(user);
             }
         }
