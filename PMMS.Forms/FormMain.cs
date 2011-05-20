@@ -54,19 +54,18 @@ namespace PMMS.Forms
 
             cbStockInStatus.SelectedIndex = 0;
             cbStokcInType.SelectedIndex = 0;
-
         }
 
         //用户管理
         private void tsmiUser_Click(object sender, EventArgs e)
         {
-            new FormUser(userLogic).Show();
+            new FormUser(userLogic).ShowDialog();
         }
 
         //款式管理
         private void tsmiStyle_Click(object sender, EventArgs e)
         {
-            new FormPlusMaterial(plusMaterialLogic).Show();
+            new FormPlusMaterial(plusMaterialLogic).ShowDialog();
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)

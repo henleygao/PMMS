@@ -21,13 +21,23 @@ namespace PMMS.Forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            UnityControllerFactory.Configure();
-         
-            //var plusMaterialLogic = container.Resolve<IPlusMaterialLogic>();
-            //var stockInLogic = container.Resolve<IStockInLogic>();
-            //var stockOutLogic = container.Resolve<IStockOutLogic>();
-            Application.Run(new FormLogin());
+            Application.ThreadException += ApplicationThreadException;
+            try
+            {
+                UnityControllerFactory.Configure();
+                Application.Run(new FormLogin());
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
+
+        static void ApplicationThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.Message);
+        }
+
+
     }
 }

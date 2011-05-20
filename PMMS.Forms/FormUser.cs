@@ -186,6 +186,12 @@ namespace PMMS.Forms
             }
         }
 
+        private void txtAccount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txtName.Focus();
+        }
+
 
     }
 }
