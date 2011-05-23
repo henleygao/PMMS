@@ -28,13 +28,13 @@ namespace PMMS.Forms
                 UnityControllerFactory.Configure();
                 Application.Run(new FormLogin());
             }
-            catch (MySqlException e)
-            {
-                if (e.Message == "Unknown database \'pmms\'")
-                {
-                   // new DataBasesInit().Init();
-                }
-            }
+            //catch (MySqlException e)
+            //{
+            //    if (e.Message == "Unknown database \'pmms\'")
+            //    {
+            //       // new DataBasesInit().Init();
+            //    }
+            //}
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
