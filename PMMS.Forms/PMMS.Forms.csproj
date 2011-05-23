@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{264313E5-52B6-453D-B61B-A18894BC0A94}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -195,6 +195,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -206,6 +207,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlusMaterialSearch.resx">
       <DependentUpon>FormPlusMaterialSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStockInCreate.resx">
       <DependentUpon>FormStockInCreate.cs</DependentUpon>
@@ -213,12 +215,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormStockInEdit.resx">
       <DependentUpon>FormStockInEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStockOutCreate.resx">
       <DependentUpon>FormStockOutCreate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStockOutEdit.resx">
       <DependentUpon>FormStockOutEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>
@@ -239,6 +244,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DateFilter.resx">
       <DependentUpon>DateFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

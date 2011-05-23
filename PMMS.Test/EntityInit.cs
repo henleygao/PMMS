@@ -43,7 +43,7 @@ namespace PMMS.Test
                 //            .Using<MySQL5Dialect>()
                 //            .Connected
                 //               .Using("ConnectionString");
-                XmlConfigurator.Configure(new FileInfo("log4net.xml"));
+                //XmlConfigurator.Configure(new FileInfo("log4net.xml"));
                 //  HibernatingRhinos.NHibernate.Profiler.Appender.NHibernateProfiler.Initialize();
 
                 _nhConfig = new Configuration().Configure();
@@ -56,6 +56,7 @@ namespace PMMS.Test
             catch (Exception ex)
             {
                 var a = ex.Message;
+                throw ex;
             }
 
         }
@@ -177,47 +178,47 @@ namespace PMMS.Test
 
                     User admin = new User()
                     {
-                        Account = "001",
+                        Account = "admin",
                         Name = "管理员",
                         Password = "8888",
                         Status = UserStatus.Enable
                     };
                     _session.Save(admin);
 
-                    User zs = new User()
-                    {
-                        Account = "002",
-                        Name = "张三",
-                        Password = "8888",
-                        Status = UserStatus.Enable
-                    };
-                    _session.Save(zs);
+                    //User zs = new User()
+                    //{
+                    //    Account = "002",
+                    //    Name = "张三",
+                    //    Password = "8888",
+                    //    Status = UserStatus.Enable
+                    //};
+                    //_session.Save(zs);
 
-                    User ls = new User()
-                    {
-                        Account = "003",
-                        Name = "李四",
-                        Password = "8888",
-                        Status = UserStatus.Enable
-                    };
-                    _session.Save(ls);
+                    //User ls = new User()
+                    //{
+                    //    Account = "003",
+                    //    Name = "李四",
+                    //    Password = "8888",
+                    //    Status = UserStatus.Enable
+                    //};
+                    //_session.Save(ls);
 
-                    for (int i = 0; i < 100; i++)
-                    {
-                        var pm = new PlusMaterial()
-                        {
-                            No = "P00" + i,
-                            Price = 10 + i,
-                            Remark = "Remark" + i,
-                            StockCount = i + 1,
-                            Supplier = "supplier" + i,
-                            FabricWidth = (i + 1) / 10,
-                            CreateDate = DateTime.Now,
-                            Color = "红色" + i,
-                            Name = "上衣" + i
-                        };
-                        _session.Save(pm);
-                    }
+                    //for (int i = 0; i < 100; i++)
+                    //{
+                    //    var pm = new PlusMaterial()
+                    //    {
+                    //        No = "P00" + i,
+                    //        Price = 10 + i,
+                    //        Remark = "Remark" + i,
+                    //        StockCount = i + 1,
+                    //        Supplier = "supplier" + i,
+                    //        FabricWidth = (i + 1) / 10,
+                    //        CreateDate = DateTime.Now,
+                    //        Color = "红色" + i,
+                    //        Name = "上衣" + i
+                    //    };
+                    //    _session.Save(pm);
+                    // }
 
 
 

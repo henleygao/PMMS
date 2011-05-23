@@ -62,7 +62,7 @@ namespace PMMS.Forms
         private void FormLogin_Load(object sender, EventArgs e)
         {
             skinEngine.SkinFile = Application.StartupPath + @"\Skin\MP10\MP10.ssk";
-            userLogic.InitUser();//初始化管理员用户
+            //   userLogic.InitUser();//初始化管理员用户
             var users = userLogic.ListLoginUser();
             cbUsers.DataSource = users;
             cbUsers.DisplayMember = "AccountAndName";

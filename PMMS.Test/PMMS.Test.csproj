@@ -71,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ManualTest1.mht" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="log4net.xml" />
