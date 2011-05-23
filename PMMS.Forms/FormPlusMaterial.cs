@@ -11,6 +11,8 @@ using PMMS.Services.Impl.System;
 using PMMS.Exceptions;
 using System.IO;
 using PMMS.Forms.Reports;
+using PMMS.Forms.Utils;
+using Microsoft.Practices.Unity;
 
 namespace PMMS.Forms
 {
@@ -18,9 +20,9 @@ namespace PMMS.Forms
     {
         IPlusMaterialLogic plusMaterialLogic;
 
-        public FormPlusMaterial(IPlusMaterialLogic plusMaterialLogic)
+        public FormPlusMaterial()
         {
-            this.plusMaterialLogic = plusMaterialLogic;
+            this.plusMaterialLogic = UnityControllerFactory.Container.Resolve<IPlusMaterialLogic>();
             InitializeComponent();
         }
 

@@ -141,6 +141,12 @@
     <Compile Include="FormPlusMaterial.Designer.cs">
       <DependentUpon>FormPlusMaterial.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPlusMaterialSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlusMaterialSearch.Designer.cs">
+      <DependentUpon>FormPlusMaterialSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStockInCreate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     <EmbeddedResource Include="FormPlusMaterial.resx">
       <DependentUpon>FormPlusMaterial.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlusMaterialSearch.resx">
+      <DependentUpon>FormPlusMaterialSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStockInCreate.resx">
       <DependentUpon>FormStockInCreate.cs</DependentUpon>

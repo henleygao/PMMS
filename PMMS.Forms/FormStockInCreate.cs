@@ -210,6 +210,11 @@ namespace PMMS.Forms
                 this.btnSave.Focus();
         }
 
-      
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            new FormPlusMaterialSearch(txtPlusNo).ShowDialog();
+        }
+
+
     }
 }

@@ -188,6 +188,7 @@
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "?";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
@@ -318,6 +319,7 @@
             this.MaximizeBox = false;
             this.Name = "FormStockInCreate";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加入库/退料单";
             this.Load += new System.EventHandler(this.FormStockIn_Load);

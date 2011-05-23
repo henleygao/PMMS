@@ -145,11 +145,9 @@ namespace PMMS.Forms
             }
         }
 
-
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            new FormPlusMaterialSearch(txtPlusNo).ShowDialog();
         }
 
         private void dgvPlus_CellEndEdit(object sender, DataGridViewCellEventArgs e)

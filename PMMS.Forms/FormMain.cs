@@ -65,7 +65,7 @@ namespace PMMS.Forms
         //款式管理
         private void tsmiStyle_Click(object sender, EventArgs e)
         {
-            new FormPlusMaterial(plusMaterialLogic).ShowDialog();
+            new FormPlusMaterial().ShowDialog();
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)

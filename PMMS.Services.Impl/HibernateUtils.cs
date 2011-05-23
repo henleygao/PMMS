@@ -15,13 +15,9 @@ namespace PMMS.Services.Impl
 
         static HibernateUtils()
         {
-            //XmlConfigurator.Configure(new FileInfo("log4net.xml"));
-            // HibernatingRhinos.NHibernate.Profiler.Appender.NHibernateProfiler.Initialize();
             var configuration = new Configuration();
             var mapping = new MappingFactory().CreateMapping();
-
             configuration.AddDeserializedMapping(mapping, null);
-
             _sessionFactory = configuration.Configure().BuildSessionFactory();
         }
 

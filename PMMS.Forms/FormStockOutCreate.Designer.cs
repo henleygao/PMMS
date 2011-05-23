@@ -244,6 +244,8 @@
             this.MaximizeBox = false;
             this.Name = "FormStockOutCreate";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加出库单";
             this.Load += new System.EventHandler(this.FormStockOutCreate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlus)).EndInit();
