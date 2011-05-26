@@ -11,7 +11,6 @@ using System.Xml.Serialization;
 using System.IO;
 using NHibernate;
 using log4net.Config;
-using NHibernate.ByteCode.Castle;
 using NHibernate.Dialect;
 using NHibernate.Cfg.Loquacious;
 using PMMS.Entities.Mapping;
@@ -185,40 +184,40 @@ namespace PMMS.Test
                     };
                     _session.Save(admin);
 
-                    //User zs = new User()
-                    //{
-                    //    Account = "002",
-                    //    Name = "张三",
-                    //    Password = "8888",
-                    //    Status = UserStatus.Enable
-                    //};
-                    //_session.Save(zs);
+                    User zs = new User()
+                    {
+                        Account = "002",
+                        Name = "张三",
+                        Password = "8888",
+                        Status = UserStatus.Enable
+                    };
+                    _session.Save(zs);
 
-                    //User ls = new User()
-                    //{
-                    //    Account = "003",
-                    //    Name = "李四",
-                    //    Password = "8888",
-                    //    Status = UserStatus.Enable
-                    //};
-                    //_session.Save(ls);
+                    User ls = new User()
+                    {
+                        Account = "003",
+                        Name = "李四",
+                        Password = "8888",
+                        Status = UserStatus.Enable
+                    };
+                    _session.Save(ls);
 
-                    //for (int i = 0; i < 100; i++)
-                    //{
-                    //    var pm = new PlusMaterial()
-                    //    {
-                    //        No = "P00" + i,
-                    //        Price = 10 + i,
-                    //        Remark = "Remark" + i,
-                    //        StockCount = i + 1,
-                    //        Supplier = "supplier" + i,
-                    //        FabricWidth = (i + 1) / 10,
-                    //        CreateDate = DateTime.Now,
-                    //        Color = "红色" + i,
-                    //        Name = "上衣" + i
-                    //    };
-                    //    _session.Save(pm);
-                    // }
+                    for (int i = 0; i < 100; i++)
+                    {
+                        var pm = new PlusMaterial()
+                        {
+                            No = "P00" + i,
+                            Price = 10 + i,
+                            Remark = "Remark" + i,
+                            StockCount = i + 1,
+                            Supplier = "supplier" + i,
+                            FabricWidth = (i + 1) / 10,
+                            CreateDate = DateTime.Now,
+                            Color = "红色" + i,
+                            Name = "上衣" + i
+                        };
+                        _session.Save(pm);
+                    }
 
 
 

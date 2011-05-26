@@ -36,11 +36,13 @@ namespace PMMS.Forms
             if (string.IsNullOrEmpty(account))
             {
                 MessageBox.Show("帐号不能为空!");
+                txtAccount.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(name))
             {
                 MessageBox.Show("姓名不能为空!");
+                txtName.Focus();
                 return;
             }
             try
@@ -51,6 +53,8 @@ namespace PMMS.Forms
                     Name = name
                 });
                 dgUsers.DataSource = userLogic.ListUser();
+                txtAccount.Clear();
+                txtName.Clear();
             }
             catch (RepeatException)
             {
@@ -190,6 +194,12 @@ namespace PMMS.Forms
         {
             if (e.KeyChar == 13)
                 txtName.Focus();
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnAdd.Focus();
         }
 
 
