@@ -28,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{96EC7090-333
 		lib\log4net.dll = lib\log4net.dll
 		lib\Microsoft.Practices.ServiceLocation.dll = lib\Microsoft.Practices.ServiceLocation.dll
 		lib\Microsoft.Practices.Unity.Configuration.dll = lib\Microsoft.Practices.Unity.Configuration.dll
-		..\..\..\Projects\ECARD\lib\Microsoft.Practices.Unity.dll = ..\..\..\Projects\ECARD\lib\Microsoft.Practices.Unity.dll
+		..\..\Projects\ECARD\lib\Microsoft.Practices.Unity.dll = ..\..\Projects\ECARD\lib\Microsoft.Practices.Unity.dll
 		lib\Moq.dll = lib\Moq.dll
 		lib\Moq.xml = lib\Moq.xml
 		lib\MvcExtensions.dll = lib\MvcExtensions.dll
@@ -47,6 +47,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.Services.Impl", "PMMS.Services.Impl\PMMS.Services.Impl.csproj", "{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PMMS.Setup", "PMMS.Setup\PMMS.Setup.vdproj", "{809395C2-078D-4400-BCC6-BE0448119779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMMS.DataBasesBackup", "PMMS.DataBasesBackup\PMMS.DataBasesBackup.csproj", "{8E7D66D4-5D55-4F7C-B4FA-37EA1F5CAB44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +86,10 @@ Global
 		{087FA0D5-5634-4CCE-8300-DB6956D0AB7A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{809395C2-078D-4400-BCC6-BE0448119779}.Debug|Any CPU.ActiveCfg = Debug
 		{809395C2-078D-4400-BCC6-BE0448119779}.Release|Any CPU.ActiveCfg = Release
+		{8E7D66D4-5D55-4F7C-B4FA-37EA1F5CAB44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E7D66D4-5D55-4F7C-B4FA-37EA1F5CAB44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E7D66D4-5D55-4F7C-B4FA-37EA1F5CAB44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E7D66D4-5D55-4F7C-B4FA-37EA1F5CAB44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

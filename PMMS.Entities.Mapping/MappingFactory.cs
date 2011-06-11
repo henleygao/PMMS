@@ -21,7 +21,6 @@ namespace PMMS.Entities.Mapping
 
             //主键生成策略(自增)
             orm.Patterns.PoidStrategies.Add(new NativePoidPattern());
-
             var entities = new[] 
             { 
                 typeof(User),
@@ -46,6 +45,7 @@ namespace PMMS.Entities.Mapping
 
         private void PropertyMapper(ref Mapper mapper)
         {
+
             //mapper.Class<User>(cm =>
             //{
             //    cm.Property(q => q.ReportDutyDate, pm => pm.NotNullable(true));

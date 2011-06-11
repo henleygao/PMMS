@@ -9,6 +9,7 @@ using PMMS.Services.System;
 using PMMS.Services.StockManage;
 using Microsoft.Practices.Unity;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace PMMS.Forms
 {
@@ -25,16 +26,14 @@ namespace PMMS.Forms
             Application.ThreadException += ApplicationThreadException;
             try
             {
+                if (!File.Exists(FormMain.DatabasesFile))
+                {
+                    MessageBox.Show("数据库文件不存在.");
+                    return;
+                }
                 UnityControllerFactory.Configure();
                 Application.Run(new FormLogin());
             }
-            //catch (MySqlException e)
-            //{
-            //    if (e.Message == "Unknown database \'pmms\'")
-            //    {
-            //       // new DataBasesInit().Init();
-            //    }
-            //}
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);

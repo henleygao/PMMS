@@ -12,11 +12,15 @@ using PMMS.Services.StockManage;
 using PMMS.Forms.Utils;
 using Microsoft.Practices.Unity;
 using PMMS.Enum;
+using System.IO;
 
 namespace PMMS.Forms
 {
     public partial class FormMain : MasterForm
     {
+        private static string DatabaeseName = "PMMS.db";
+        public static string DatabasesFile = Path.Combine(Application.StartupPath, string.Format("DB\\{0}", DatabaeseName));
+
         IUserLogic userLogic;
         IPlusMaterialLogic plusMaterialLogic;
         IStockInLogic stockInLogic;
@@ -218,8 +222,67 @@ namespace PMMS.Forms
             new FormAbout().ShowDialog();
         }
 
+        /// <summary>
+        /// 数据库备份
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmiDatabasesBackup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult resultDialog = folderBrowserDialog.ShowDialog();
+                if (resultDialog == DialogResult.OK)
+                {
+                    var file = string.Format("{0}\\PMMS_{1}.db", folderBrowserDialog.SelectedPath, DateTime.Now.ToString("yyyyMMddHHmmss"));
+                    DataBasesUtils.Backup(DatabasesFile, file);
+                    MessageBox.Show("数据库成功备份到" + file);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        /// <summary>
+        /// 数据库还原
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmiDatabasesRestore_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult resultDialog = this.openFileDialog.ShowDialog();
+                if (resultDialog == DialogResult.OK)
+                {
+                    if (!File.Exists(openFileDialog.FileName))
+                    {
+                        MessageBox.Show("数据库文件不存在!");
+                        return;
+                    }
 
+                    FileStream fs = (FileStream)openFileDialog.OpenFile();
+                    if (fs != null)
+                    {
+                        fs.Close();
+                    }
+                    DialogResult res = MessageBox.Show(" 是否确认恢复数据库？", "恢复数据库", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (res == DialogResult.OK)
+                    {
+                        DataBasesUtils.Restore(DatabasesFile, openFileDialog.FileName);
+                        MessageBox.Show("数据库已经还原成功!");
+                    }
+
+                }
+                saveFileDialog.FileName = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
 
     }
